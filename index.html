@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="独立软件开发者作品集 - 网页游戏、APP原型与技术博客">
+<title>Lucas Li · 独立开发者作品集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ==================== Design Tokens ==================== */
+:root {
+  --coral: #FF6B47;
+  --coral-light: #FF8A6B;
+  --coral-dark: #E5502E;
+  --coral-glow: rgba(255, 107, 71, 0.25);
+  --navy: #1a1a2e;
+  --navy-light: #2a2a4e;
+  --cream: #FFF8F5;
+  --cream-dark: #F5EDE6;
+  --sage: #87A96B;
+  --sage-light: #A8C18A;
+  --gold: #F4B942;
+  --text: #2D2D2D;
+  --text-light: #6B6B6B;
+  --text-mute: #9B9B9B;
+  --white: #FFFFFF;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 6px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+  --shadow-coral: 0 8px 32px rgba(255, 107, 71, 0.2);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ==================== Reset ==================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: color var(--transition); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ==================== Navigation ==================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 248, 245, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 107, 71, 0.08);
+  transition: padding var(--transition);
+}
+.nav.scrolled { padding: 0.5rem 2rem; box-shadow: var(--shadow-sm); }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+.nav-logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-coral);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+.nav-links a {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+.nav-links a:hover { color: var(--coral); background: rgba(255,107,71,0.06); }
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem;
+  background: rgba(255,107,71,0.08);
+  border-radius: 20px;
+}
+.lang-btn {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 16px;
+  color: var(--text-light);
+  transition: all var(--transition);
+}
+.lang-btn.active {
+  background: var(--coral);
+  color: white;
+}
+
+.nav-mobile-toggle { display: none; }
+
+/* ==================== Hero ==================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 6rem 2rem 3rem;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+.hero-bg canvas { width: 100%; height: 100%; }
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-text { max-width: 580px; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  background: rgba(255,107,71,0.1);
+  border: 1px solid rgba(255,107,71,0.2);
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--coral-dark);
+  margin-bottom: 1.5rem;
+}
+.hero-badge .dot {
+  width: 8px; height: 8px;
+  background: var(--coral);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--navy);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 .accent { color: var(--coral); }
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-coral);
+  transition: all var(--transition);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,107,71,0.35); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  background: white;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--cream-dark);
+  transition: all var(--transition);
+}
+.btn-secondary:hover { border-color: var(--coral); color: var(--coral); transform: translateY(-2px); }
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-avatar-wrap {
+  position: relative;
+  width: 340px;
+  height: 340px;
+}
+.hero-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: var(--shadow-lg);
+}
+.hero-avatar-wrap::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: -12px; right: -12px; bottom: -12px;
+  border: 3px dashed var(--coral);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: spin 25s linear infinite;
+}
+.float-card {
+  position: absolute;
+  background: white;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  animation: float 4s ease-in-out infinite;
+}
+.float-card .icon { font-size: 1.1rem; }
+.float-card-1 { top: 8%; right: -5%; animation-delay: 0s; }
+.float-card-2 { bottom: 12%; left: -8%; animation-delay: 1.5s; }
+.float-card-3 { top: 45%; right: -10%; animation-delay: 3s; }
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cream-dark);
+}
+.stat-item .num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--coral);
+  line-height: 1;
+}
+.stat-item .label {
+  font-size: 0.82rem;
+  color: var(--text-mute);
+  margin-top: 0.3rem;
+}
+
+/* ==================== Section Base ==================== */
+.section {
+  padding: 5rem 2rem;
+  position: relative;
+}
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--coral);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+}
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+.section-header p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ==================== Games Section ==================== */
+.games-section { background: var(--white); }
+
+.project-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 5rem;
+  padding: 2rem;
+  background: var(--cream);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: all var(--transition);
+}
+.project-card:last-child { margin-bottom: 0; }
+.project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+.project-card:nth-child(even) .project-visual { order: -1; }
+
+.project-visual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  box-shadow: var(--shadow-md);
+  background: var(--navy);
+}
+.project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.project-card:hover .project-visual img { transform: scale(1.05); }
+
+.project-visual-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.tech-tag {
+  padding: 0.25rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  color: white;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  background: rgba(255, 107, 71, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  z-index: 2;
+  box-shadow: var(--shadow-coral);
+}
+.play-overlay:hover { transform: translate(-50%, -50%) scale(1.15); background: var(--coral); }
+.play-overlay svg { width: 28px; height: 28px; fill: white; margin-left: 3px; }
+
+.project-info { padding: 0.5rem 0; }
+.project-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--coral);
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+.project-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+.project-subtitle {
+  font-size: 0.95rem;
+  color: var(--coral);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.project-desc {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+}
+.feature-chip {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: white;
+  border: 1px solid var(--cream-dark);
+  border-radius: 20px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.3rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+.link-btn.play {
+  background: var(--coral);
+  color: white;
+  box-shadow: 0 4px 16px rgba(255,107,71,0.3);
+}
+.link-btn.play:hover { background: var(--coral-dark); transform: translateY(-2px); }
+.link-btn.source {
+  background: white;
+  color: var(--navy);
+  border: 2px solid var(--cream-dark);
+}
+.link-btn.source:hover { border-color: var(--navy); transform: translateY(-2px); }
+.link-btn svg { width: 18px; height: 18px; }
+
+/* ==================== App Prototype Section ==================== */
+.app-section { background: var(--cream); }
+
+.app-card {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--cream-dark), white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255,107,71,0.06);
+}
+.app-preview {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(180deg, #FFF0E8, #FFE0D0);
+}
+.app-preview img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.app-mockup-frame {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 78%;
+  max-width: 280px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  overflow: hidden;
+  aspect-ratio: 9/16;
+}
+.app-mockup-frame iframe { width: 100%; height: 100%; border: none; }
+
+/* ==================== Blog Section ==================== */
+.blog-section { background: var(--white); }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+.blog-card {
+  padding: 2rem;
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: all var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.blog-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--coral), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.blog-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.blog-card:hover::before { transform: scaleX(1); }
+
+.blog-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-mute);
+  margin-bottom: 0.8rem;
+}
+.blog-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+.blog-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.blog-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.blog-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  background: rgba(255,107,71,0.08);
+  color: var(--coral-dark);
+  border-radius: 6px;
+}
+.blog-read {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--coral);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  transition: gap var(--transition);
+}
+.blog-card:hover .blog-read { gap: 0.6rem; }
+
+/* ==================== About Section ==================== */
+.about-section { background: var(--navy); color: white; }
+.about-section .section-header h2 { color: white; }
+.about-section .section-header p { color: rgba(255,255,255,0.6); }
+.about-section .section-tag { color: var(--coral-light); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.about-text h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+.about-text p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.skill-tag {
+  padding: 0.4rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.85);
+}
+.about-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.about-stat-card {
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.about-stat-card .icon { font-size: 2rem; margin-bottom: 0.6rem; }
+.about-stat-card .num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--coral-light);
+}
+.about-stat-card .label {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.3rem;
+}
+
+/* ==================== Contact / Footer ==================== */
+.contact-section {
+  padding: 4rem 2rem 2rem;
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-section h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.8rem;
+}
+.contact-section p {
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2rem;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all var(--transition);
+}
+.contact-link:hover { background: var(--coral); color: white; border-color: var(--coral); transform: translateY(-2px); }
+.contact-link svg { width: 20px; height: 20px; }
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+}
+.footer-heart { color: var(--coral); }
+
+/* ==================== Video Modal ==================== */
+.video-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.video-modal.active { display: flex; animation: fadeIn 0.3s ease; }
+.video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+}
+.video-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(0,0,0,0.3);
+}
+.video-modal-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+.video-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all var(--transition);
+}
+.video-close:hover { background: var(--coral); }
+.video-modal-body {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.video-modal-body iframe { width: 100%; height: 100%; border: none; }
+.video-trailer-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==================== Animations ==================== */
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.3); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideRight { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.4,0,0.2,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.7s cubic-bezier(0.4,0,0.2,1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.7s cubic-bezier(0.4,0,0.2,1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ==================== Responsive ==================== */
+@media (max-width: 968px) {
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-visual { order: -1; }
+  .hero-text { max-width: 100%; }
+  .hero-actions, .hero-stats { justify-content: center; }
+  .project-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
+  .project-card:nth-child(even) .project-visual { order: 0; }
+  .app-card { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .nav-mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .nav-mobile-toggle span {
+    width: 24px; height: 3px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: all var(--transition);
+  }
+  .nav-links.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    background: var(--cream);
+    padding: 1rem;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-md);
+  }
+  .hero-avatar-wrap { width: 260px; height: 260px; }
+  .float-card { font-size: 0.75rem; padding: 0.4rem 0.7rem; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 3rem 1rem; }
+  .hero { padding: 5rem 1rem 2rem; }
+  .hero-stats { gap: 1.5rem; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .about-visual { grid-template-columns: 1fr 1fr; }
+  .hero-avatar-wrap { width: 200px; height: 200px; }
+  .float-card { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== Navigation ==================== -->
+<nav class="nav" id="nav">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-icon">L</div>
+    <span>Lucas Li</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#projects" data-i18n="nav.projects">作品</a></li>
+    <li><a href="#app" data-i18n="nav.app">原型</a></li>
+    <li><a href="#blog" data-i18n="nav.blog">博客</a></li>
+    <li><a href="#about" data-i18n="nav.about">关于</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">联系</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:0.75rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="zh">中</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <div class="nav-mobile-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== Hero ==================== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <canvas id="heroCanvas"></canvas>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text reveal-left">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span data-i18n="hero.badge">独立开发者 · 全栈 · 游戏制作</span>
+      </div>
+      <h1 data-i18n-html="hero.title">
+        用代码创造<br><span class="accent">有趣的东西</span>
+      </h1>
+      <p data-i18n="hero.desc">
+        我是 Lucas Li，一名独立软件开发者。专注于网页游戏、移动应用原型与开发者工具。相信好的产品源于对细节的执着和对乐趣的追求。
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">
+          <span data-i18n="hero.cta1">查看作品</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn-secondary" data-i18n="hero.cta2">联系我</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="num">3+</div>
+          <div class="label" data-i18n="hero.stat1">独立项目</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">2</div>
+          <div class="label" data-i18n="hero.stat2">网页游戏</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">100%</div>
+          <div class="label" data-i18n="hero.stat3">纯前端</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal-right">
+      <div class="hero-avatar-wrap">
+        <img src="assets/dev-avatar.jpg" alt="Lucas Li" loading="eager">
+        <div class="float-card float-card-1">
+          <span class="icon">🎮</span>
+          <span data-i18n="hero.float1">HTML5 游戏</span>
+        </div>
+        <div class="float-card float-card-2">
+          <span class="icon">📱</span>
+          <span data-i18n="hero.float2">App 原型</span>
+        </div>
+        <div class="float-card float-card-3">
+          <span class="icon">⚡</span>
+          <span data-i18n="hero.float3">零依赖</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Games Section ==================== -->
+<section class="section games-section" id="projects">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="projects.tag">PORTFOLIO</span>
+      <h2 data-i18n="projects.title">精选作品</h2>
+      <p data-i18n="projects.desc">每一款作品都是纯前端单文件实现，双击即玩，零依赖、零构建。</p>
+    </div>
+
+    <!-- Game 1: Survivor -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <img src="assets/survivor-cover.jpg" alt="暗夜幸存者" loading="lazy">
+        <div class="play-overlay" onclick="openVideoModal('survivor')">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">HTML5 Canvas</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">~1000行</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">01 / GAME</div>
+        <h3 data-i18n="survivor.title">暗夜幸存者</h3>
+        <div class="project-subtitle" data-i18n="survivor.subtitle">Survivor · 仿吸血鬼幸存者</div>
+        <p data-i18n="survivor.desc">
+          一款仿《吸血鬼幸存者》的浏览器小游戏。蓝衣大头小英雄在暗夜中对抗绿僵尸、紫蝙蝠、白骷髅、橙食人魔和红 Boss。5种武器全自动攻击，升级三选一，本地排行榜 Top 10。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">⚔️ <span data-i18n="survivor.f1">5种武器</span></li>
+          <li class="feature-chip">👾 <span data-i18n="survivor.f2">5种敌人</span></li>
+          <li class="feature-chip">📈 <span data-i18n="survivor.f3">升级三选一</span></li>
+          <li class="feature-chip">🏆 <span data-i18n="survivor.f4">本地排行榜</span></li>
+          <li class="feature-chip">🚀 <span data-i18n="survivor.f5">离屏精灵预渲染</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://survivor-game-9e3.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.play">在线试玩</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/survivor-game" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+          <button class="link-btn source" onclick="openVideoModal('survivor')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7zM14 5H3a2 2 0 00-2 2v10a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game 2: Plane War -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <img src="assets/planewar-cover.jpg" alt="飞机大战" loading="lazy">
+        <div class="play-overlay" onclick="openVideoModal('planewar')">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">HTML5 Canvas</span>
+          <span class="tech-tag">Web Audio</span>
+          <span class="tech-tag">localStorage</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">02 / GAME</div>
+        <h3 data-i18n="planewar.title">飞机大战</h3>
+        <div class="project-subtitle" data-i18n="planewar.subtitle">Plane War · 经典射击</div>
+        <p data-i18n="planewar.desc">
+          纯前端实现的飞机大战小游戏，单 HTML 文件双击即玩。程序化音效合成、BOSS 关卡多阶段弹幕、6种武器道具系统、TOP 10 排行榜，兼容桌面与移动端浏览器。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">🎯 <span data-i18n="planewar.f1">6种武器道具</span></li>
+          <li class="feature-chip">👹 <span data-i18n="planewar.f2">BOSS 弹幕战</span></li>
+          <li class="feature-chip">🔊 <span data-i18n="planewar.f3">程序化音效</span></li>
+          <li class="feature-chip">🏆 <span data-i18n="planewar.f4">TOP 10 排行榜</span></li>
+          <li class="feature-chip">📱 <span data-i18n="planewar.f5">移动端适配</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://plane-war-c5b.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.play">在线试玩</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/plane-war" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+          <button class="link-btn source" onclick="openVideoModal('planewar')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7zM14 5H3a2 2 0 00-2 2v10a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== App Prototype Section ==================== -->
+<section class="section app-section" id="app">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="app.tag">APP PROTOTYPE</span>
+      <h2 data-i18n="app.title">应用原型</h2>
+      <p data-i18n="app.desc">从概念到交互，用原型快速验证产品想法。</p>
+    </div>
+
+    <div class="app-card reveal">
+      <div class="app-preview">
+        <img src="assets/warmcompanion-cover.jpg" alt="温暖陪伴" loading="lazy">
+      </div>
+      <div class="project-info">
+        <div class="project-number">03 / APP</div>
+        <h3 data-i18n="warm.title">温暖陪伴</h3>
+        <div class="project-subtitle" data-i18n="warm.subtitle">Warm Companion · 情感陪伴聊天</div>
+        <p data-i18n="warm.desc">
+          温柔治愈风格的情感陪伴聊天 App 界面原型。虚拟角色「阿溪」以温柔知性的学姐人设提供日常问候、情绪疏导与鼓励打气。三栏布局、逐字打字机效果、富文本与代码高亮，mock 流式回复。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">💬 <span data-i18n="warm.f1">三栏聊天布局</span></li>
+          <li class="feature-chip">✨ <span data-i18n="warm.f2">打字机效果</span></li>
+          <li class="feature-chip">📝 <span data-i18n="warm.f3">富文本+代码高亮</span></li>
+          <li class="feature-chip">🎨 <span data-i18n="warm.f4">珊瑚橙主题</span></li>
+          <li class="feature-chip">🤖 <span data-i18n="warm.f5">mock AI 回复</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://warm-companion.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <span data-i18n="common.prototype">在线体验</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/warm-companion" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Blog Section ==================== -->
+<section class="section blog-section" id="blog">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="blog.tag">TECH BLOG</span>
+      <h2 data-i18n="blog.title">技术博客</h2>
+      <p data-i18n="blog.desc">记录开发过程中的思考、踩坑与解决方案。</p>
+    </div>
+
+    <div class="blog-grid">
+      <article class="blog-card reveal" onclick="window.open('https://gitee.com/li-luoqiang/survivor-game', '_blank')">
+        <div class="blog-date">2026-08-23</div>
+        <h3 data-i18n="blog.b1.title">纯 Canvas 如何实现满屏敌人不掉帧</h3>
+        <p data-i18n="blog.b1.desc">暗夜幸存者中，通过离屏精灵预渲染 + 屏幕外实体裁剪 + 粒子上限保护，在大量敌人同屏时保持 60fps。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">Canvas</span>
+          <span class="blog-tag">性能优化</span>
+          <span class="blog-tag">游戏开发</span>
+        </div>
+        <div class="blog-read">
+          <span data-i18n="blog.read">阅读全文</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" onclick="window.open('https://gitee.com/li-luoqiang/plane-war', '_blank')">
+        <div class="blog-date">2026-08-17</div>
+        <h3 data-i18n="blog.b2.title">Web Audio API 程序化合成游戏音效</h3>
+        <p data-i18n="blog.b2.desc">飞机大战中零音频文件实现射击、爆炸、拾取等全部音效，用 OscillatorNode + GainNode 实时合成。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">Web Audio</span>
+          <span class="blog-tag">音效合成</span>
+          <span class="blog-tag">零依赖</span>
+        </div>
+        <div class="blog-read">
+          <span data-i18n="blog.read">阅读全文</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" onclick="window.open('https://gitee.com/li-luoqiang/warm-companion', '_blank')">
+        <div class="blog-date">2026-09-06</div>
+        <h3 data-i18n="blog.b3.title">从 mock 到真实 API：聊天原型的渐进式设计</h3>
+        <p data-i18n="blog.b3.desc">温暖陪伴原型如何用 mockReply 函数实现流式回复效果，并预留一行代码切换到真实后端。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">原型设计</span>
+          <span class="blog-tag">Chat UI</span>
+          <span class="blog-tag">架构</span>
+        </div>
+        <div class="blog-read">
+          <span data-i18n="blog.read">阅读全文</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" onclick="window.open('https://gitee.com/li-luoqiang', '_blank')">
+        <div class="blog-date">2026-09-01</div>
+        <h3 data-i18n="blog.b4.title">单文件部署到 Cloudflare Pages 的最佳实践</h3>
+        <p data-i18n="blog.b4.desc">无需 Git、无需构建，直接上传文件夹即可获得全球 CDN 加速的 HTTPS 链接，国内访问稳定。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">Cloudflare</span>
+          <span class="blog-tag">部署</span>
+          <span class="blog-tag">DevOps</span>
+        </div>
+        <div class="blog-read">
+          <span data-i18n="blog.read">阅读全文</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" onclick="window.open('https://gitee.com/li-luoqiang', '_blank')">
+        <div class="blog-date">2026-08-10</div>
+        <h3 data-i18n="blog.b5.title">localStorage 游戏排行榜的正确实现方式</h3>
+        <p data-i18n="blog.b5.desc">从数据结构设计到排序规则、破纪录高亮、多维度比较，在两款游戏中反复验证的排行榜方案。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">localStorage</span>
+          <span class="blog-tag">数据结构</span>
+          <span class="blog-tag">游戏</span>
+        </div>
+        <div class="blog-read">
+          <span data-i18n="blog.read">阅读全文</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+
+      <article class="blog-card reveal" onclick="window.open('https://gitee.com/li-luoqiang', '_blank')">
+        <div class="blog-date">2026-07-28</div>
+        <h3 data-i18n="blog.b6.title">Canvas 矢量绘制卡通角色的技巧</h3>
+        <p data-i18n="blog.b6.desc">不依赖任何图片素材，用 Canvas 2D API 矢量绘制 Q 版角色——阴影、朝向、受击闪白的实现思路。</p>
+        <div class="blog-tags">
+          <span class="blog-tag">Canvas</span>
+          <span class="blog-tag">矢量绘图</span>
+          <span class="blog-tag">角色设计</span>
+        </div>
+        <div class="blog-read">
+          <span data-i18n="blog.read">阅读全文</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== About Section ==================== -->
+<section class="section about-section" id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="about.tag">ABOUT</span>
+      <h2 data-i18n="about.title">关于我</h2>
+      <p data-i18n="about.desc">独立开发者，相信小而美的产品力量。</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <h3 data-i18n="about.heading">从想法到上线，一个人就是一支团队</h3>
+        <p data-i18n="about.p1">
+          我是 Lucas Li，一名独立软件开发者。白天写 Java 经纪业务系统，夜晚和周末用 HTML5 Canvas 做游戏、用原生 JS 搭应用原型。
+        </p>
+        <p data-i18n="about.p2">
+          我相信好的产品不需要庞大的团队和复杂的框架——一个 HTML 文件、一份热爱、足够的细节打磨，就能创造出让人会心一笑的东西。所有作品都是纯前端单文件实现，双击即玩，零依赖。
+        </p>
+        <p data-i18n="about.p3">
+          擅长 Java 后端（恒生 UF3.0/JRESCloud）、HTML5 游戏开发、UI/UX 原型设计、Cloudflare Pages 部署。偏好珊瑚橙视觉风格与卡通萌系 UI。
+        </p>
+        <div class="about-skills">
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">HTML5 Canvas</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Web Audio</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">Cloudflare</span>
+          <span class="skill-tag">UI/UX</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+      <div class="about-visual reveal-right">
+        <div class="about-stat-card">
+          <div class="icon">🎮</div>
+          <div class="num">2</div>
+          <div class="label" data-i18n="about.s1">网页游戏</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="icon">📱</div>
+          <div class="num">1</div>
+          <div class="label" data-i18n="about.s2">APP 原型</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="icon">📝</div>
+          <div class="num">6+</div>
+          <div class="label" data-i18n="about.s3">技术文章</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="icon">☕</div>
+          <div class="num">∞</div>
+          <div class="label" data-i18n="about.s4">咖啡因</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Contact / Footer ==================== -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 data-i18n="contact.title">一起做点有趣的？</h2>
+    <p data-i18n="contact.desc">无论是游戏开发、应用原型还是技术合作，随时欢迎找我聊聊。</p>
+    <div class="contact-links">
+      <a href="https://gitee.com/li-luoqiang" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+        <span>Gitee</span>
+      </a>
+      <a href="mailto:1906859953@qq.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <span>Email</span>
+      </a>
+      <a href="https://survivor-game-9e3.pages.dev/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <span data-i18n="contact.game1">幸存者</span>
+      </a>
+      <a href="https://plane-war-c5b.pages.dev/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        <span data-i18n="contact.game2">飞机大战</span>
+      </a>
+      <a href="https://warm-companion.pages.dev/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        <span data-i18n="contact.app">温暖陪伴</span>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lucas Li. <span data-i18n="footer.made">用</span> <span class="footer-heart">♥</span> <span data-i18n="footer.and">和</span> HTML5 Canvas <span data-i18n="footer.built">构建</span></p>
+      <p data-i18n="footer.note">珊瑚橙主题 · 纯前端 · 零依赖</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Video Modal ==================== -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-content">
+    <div class="video-modal-header">
+      <h3 id="videoTitle">游戏预览</h3>
+      <button class="video-close" id="videoClose">&times;</button>
+    </div>
+    <div class="video-modal-body" id="videoBody">
+      <canvas class="video-trailer-canvas" id="trailerCanvas"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==================== i18n ==================== */
+const i18n = {
+  zh: {
+    "nav.projects": "作品",
+    "nav.app": "原型",
+    "nav.blog": "博客",
+    "nav.about": "关于",
+    "nav.contact": "联系",
+    "hero.badge": "独立开发者 · 全栈 · 游戏制作",
+    "hero.title": "用代码创造<br><span class=\"accent\">有趣的东西</span>",
+    "hero.desc": "我是 Lucas Li，一名独立软件开发者。专注于网页游戏、移动应用原型与开发者工具。相信好的产品源于对细节的执着和对乐趣的追求。",
+    "hero.cta1": "查看作品",
+    "hero.cta2": "联系我",
+    "hero.stat1": "独立项目",
+    "hero.stat2": "网页游戏",
+    "hero.stat3": "纯前端",
+    "hero.float1": "HTML5 游戏",
+    "hero.float2": "App 原型",
+    "hero.float3": "零依赖",
+    "projects.tag": "精选作品",
+    "projects.title": "精选作品",
+    "projects.desc": "每一款作品都是纯前端单文件实现，双击即玩，零依赖、零构建。",
+    "survivor.title": "暗夜幸存者",
+    "survivor.subtitle": "Survivor · 仿吸血鬼幸存者",
+    "survivor.desc": "一款仿《吸血鬼幸存者》的浏览器小游戏。蓝衣大头小英雄在暗夜中对抗绿僵尸、紫蝙蝠、白骷髅、橙食人魔和红 Boss。5种武器全自动攻击，升级三选一，本地排行榜 Top 10。",
+    "survivor.f1": "5种武器",
+    "survivor.f2": "5种敌人",
+    "survivor.f3": "升级三选一",
+    "survivor.f4": "本地排行榜",
+    "survivor.f5": "离屏精灵预渲染",
+    "planewar.title": "飞机大战",
+    "planewar.subtitle": "Plane War · 经典射击",
+    "planewar.desc": "纯前端实现的飞机大战小游戏，单 HTML 文件双击即玩。程序化音效合成、BOSS 关卡多阶段弹幕、6种武器道具系统、TOP 10 排行榜，兼容桌面与移动端浏览器。",
+    "planewar.f1": "6种武器道具",
+    "planewar.f2": "BOSS 弹幕战",
+    "planewar.f3": "程序化音效",
+    "planewar.f4": "TOP 10 排行榜",
+    "planewar.f5": "移动端适配",
+    "app.tag": "APP PROTOTYPE",
+    "app.title": "应用原型",
+    "app.desc": "从概念到交互，用原型快速验证产品想法。",
+    "warm.title": "温暖陪伴",
+    "warm.subtitle": "Warm Companion · 情感陪伴聊天",
+    "warm.desc": "温柔治愈风格的情感陪伴聊天 App 界面原型。虚拟角色「阿溪」以温柔知性的学姐人设提供日常问候、情绪疏导与鼓励打气。三栏布局、逐字打字机效果、富文本与代码高亮，mock 流式回复。",
+    "warm.f1": "三栏聊天布局",
+    "warm.f2": "打字机效果",
+    "warm.f3": "富文本+代码高亮",
+    "warm.f4": "珊瑚橙主题",
+    "warm.f5": "mock AI 回复",
+    "blog.tag": "TECH BLOG",
+    "blog.title": "技术博客",
+    "blog.desc": "记录开发过程中的思考、踩坑与解决方案。",
+    "blog.read": "阅读全文",
+    "blog.b1.title": "纯 Canvas 如何实现满屏敌人不掉帧",
+    "blog.b1.desc": "暗夜幸存者中，通过离屏精灵预渲染 + 屏幕外实体裁剪 + 粒子上限保护，在大量敌人同屏时保持 60fps。",
+    "blog.b2.title": "Web Audio API 程序化合成游戏音效",
+    "blog.b2.desc": "飞机大战中零音频文件实现射击、爆炸、拾取等全部音效，用 OscillatorNode + GainNode 实时合成。",
+    "blog.b3.title": "从 mock 到真实 API：聊天原型的渐进式设计",
+    "blog.b3.desc": "温暖陪伴原型如何用 mockReply 函数实现流式回复效果，并预留一行代码切换到真实后端。",
+    "blog.b4.title": "单文件部署到 Cloudflare Pages 的最佳实践",
+    "blog.b4.desc": "无需 Git、无需构建，直接上传文件夹即可获得全球 CDN 加速的 HTTPS 链接，国内访问稳定。",
+    "blog.b5.title": "localStorage 游戏排行榜的正确实现方式",
+    "blog.b5.desc": "从数据结构设计到排序规则、破纪录高亮、多维度比较，在两款游戏中反复验证的排行榜方案。",
+    "blog.b6.title": "Canvas 矢量绘制卡通角色的技巧",
+    "blog.b6.desc": "不依赖任何图片素材，用 Canvas 2D API 矢量绘制 Q 版角色——阴影、朝向、受击闪白的实现思路。",
+    "about.tag": "ABOUT",
+    "about.title": "关于我",
+    "about.desc": "独立开发者，相信小而美的产品力量。",
+    "about.heading": "从想法到上线，一个人就是一支团队",
+    "about.p1": "我是 Lucas Li，一名独立软件开发者。白天写 Java 经纪业务系统，夜晚和周末用 HTML5 Canvas 做游戏、用原生 JS 搭应用原型。",
+    "about.p2": "我相信好的产品不需要庞大的团队和复杂的框架——一个 HTML 文件、一份热爱、足够的细节打磨，就能创造出让人会心一笑的东西。所有作品都是纯前端单文件实现，双击即玩，零依赖。",
+    "about.p3": "擅长 Java 后端（恒生 UF3.0/JRESCloud）、HTML5 游戏开发、UI/UX 原型设计、Cloudflare Pages 部署。偏好珊瑚橙视觉风格与卡通萌系 UI。",
+    "about.s1": "网页游戏",
+    "about.s2": "APP 原型",
+    "about.s3": "技术文章",
+    "about.s4": "咖啡因",
+    "contact.title": "一起做点有趣的？",
+    "contact.desc": "无论是游戏开发、应用原型还是技术合作，随时欢迎找我聊聊。",
+    "contact.game1": "幸存者",
+    "contact.game2": "飞机大战",
+    "contact.app": "温暖陪伴",
+    "common.play": "在线试玩",
+    "common.source": "源码",
+    "common.video": "视频",
+    "common.prototype": "在线体验",
+    "footer.made": "用",
+    "footer.and": "和",
+    "footer.built": "构建",
+    "footer.note": "珊瑚橙主题 · 纯前端 · 零依赖",
+    "video.survivor": "暗夜幸存者 · 游戏预览",
+    "video.planewar": "飞机大战 · 游戏预览"
+  },
+  en: {
+    "nav.projects": "Work",
+    "nav.app": "App",
+    "nav.blog": "Blog",
+    "nav.about": "About",
+    "nav.contact": "Contact",
+    "hero.badge": "Indie Developer · Full Stack · Game Dev",
+    "hero.title": "Building fun things<br><span class=\"accent\">with code</span>",
+    "hero.desc": "I'm Lucas Li, an independent software developer. I focus on web games, mobile app prototypes, and developer tools. I believe great products come from an obsession with detail and the pursuit of joy.",
+    "hero.cta1": "View Work",
+    "hero.cta2": "Get in Touch",
+    "hero.stat1": "Indie Projects",
+    "hero.stat2": "Web Games",
+    "hero.stat3": "Pure Frontend",
+    "hero.float1": "HTML5 Games",
+    "hero.float2": "App Prototypes",
+    "hero.float3": "Zero Deps",
+    "projects.tag": "PORTFOLIO",
+    "projects.title": "Selected Work",
+    "projects.desc": "Every project is a pure single-file frontend — double-click to play, zero dependencies, zero build steps.",
+    "survivor.title": "Dark Night Survivor",
+    "survivor.subtitle": "Survivor · Vampire Survivors clone",
+    "survivor.desc": "A browser game inspired by Vampire Survivors. A blue-clothed big-headed hero fights green zombies, purple bats, white skeletons, orange ogres, and red bosses. 5 auto-attack weapons, upgrade picks, and a local Top 10 leaderboard.",
+    "survivor.f1": "5 Weapons",
+    "survivor.f2": "5 Enemy Types",
+    "survivor.f3": "Upgrade Picks",
+    "survivor.f4": "Local Leaderboard",
+    "survivor.f5": "Off-screen Sprite Cache",
+    "planewar.title": "Plane War",
+    "planewar.subtitle": "Plane War · Classic Shooter",
+    "planewar.desc": "A pure frontend plane shooter game in a single HTML file. Procedural audio synthesis, multi-stage boss bullet patterns, 6 weapon pickups, and a Top 10 leaderboard. Works on desktop and mobile browsers.",
+    "planewar.f1": "6 Weapon Pickups",
+    "planewar.f2": "Boss Bullet Patterns",
+    "planewar.f3": "Procedural Audio",
+    "planewar.f4": "Top 10 Leaderboard",
+    "planewar.f5": "Mobile Support",
+    "app.tag": "APP PROTOTYPE",
+    "app.title": "App Prototype",
+    "app.desc": "From concept to interaction — validating product ideas through rapid prototyping.",
+    "warm.title": "Warm Companion",
+    "warm.subtitle": "Warm Companion · Emotional Chat",
+    "warm.desc": "A gentle, healing-style emotional companion chat app prototype. The virtual character \"Axi\" — a gentle, wise senior student — offers daily greetings, emotional support, and encouragement. Three-column layout, typewriter effect, rich text with code highlighting, and mock streaming replies.",
+    "warm.f1": "Three-column Chat",
+    "warm.f2": "Typewriter Effect",
+    "warm.f3": "Rich Text + Code",
+    "warm.f4": "Coral Orange Theme",
+    "warm.f5": "Mock AI Replies",
+    "blog.tag": "TECH BLOG",
+    "blog.title": "Tech Blog",
+    "blog.desc": "Thoughts, pitfalls, and solutions from the development process.",
+    "blog.read": "Read More",
+    "blog.b1.title": "Pure Canvas: Full Screen Enemies Without Dropping Frames",
+    "blog.b1.desc": "In Dark Night Survivor, off-screen sprite pre-rendering + entity culling + particle caps keep 60fps with tons of enemies on screen.",
+    "blog.b2.title": "Procedural Game Audio with Web Audio API",
+    "blog.b2.desc": "Plane War synthesizes shooting, explosion, and pickup sounds with zero audio files using OscillatorNode + GainNode in real time.",
+    "blog.b3.title": "From Mock to Real API: Progressive Chat Prototype Design",
+    "blog.b3.desc": "How Warm Companion's mockReply function creates streaming reply effects and leaves a one-line switch to a real backend.",
+    "blog.b4.title": "Deploying Single-File Apps to Cloudflare Pages",
+    "blog.b4.desc": "No Git, no build step — just upload a folder and get a global CDN-accelerated HTTPS link with stable access in China.",
+    "blog.b5.title": "The Right Way to Build a localStorage Game Leaderboard",
+    "blog.b5.desc": "From data structure design to sorting rules, record-breaking highlights, and multi-dimensional comparison — a battle-tested approach.",
+    "blog.b6.title": "Drawing Cartoon Characters with Canvas Vectors",
+    "blog.b6.desc": "No image assets needed — using Canvas 2D API to vector-draw cute characters with shadows, facing direction, and hit-flash effects.",
+    "about.tag": "ABOUT",
+    "about.title": "About Me",
+    "about.desc": "Independent developer. Believer in small, beautiful products.",
+    "about.heading": "From Idea to Launch — A Team of One",
+    "about.p1": "I'm Lucas Li, an independent software developer. By day I build Java brokerage systems; by night and weekends I make games with HTML5 Canvas and prototype apps with vanilla JS.",
+    "about.p2": "I believe great products don't need huge teams or complex frameworks — a single HTML file, passion, and enough attention to detail can create something that makes people smile. Every project here is a pure single-file frontend: double-click to play, zero dependencies.",
+    "about.p3": "Skilled in Java backend (Hundsun UF3.0/JRESCloud), HTML5 game development, UI/UX prototyping, and Cloudflare Pages deployment. I love coral orange visuals and cute cartoon UI.",
+    "about.s1": "Web Games",
+    "about.s2": "App Prototypes",
+    "about.s3": "Tech Articles",
+    "about.s4": "Caffeine",
+    "contact.title": "Let's build something fun?",
+    "contact.desc": "Whether it's game development, app prototyping, or tech collaboration — feel free to reach out anytime.",
+    "contact.game1": "Survivor",
+    "contact.game2": "Plane War",
+    "contact.app": "Warm Companion",
+    "common.play": "Play Now",
+    "common.source": "Source",
+    "common.video": "Video",
+    "common.prototype": "Try Live",
+    "footer.made": "Built with",
+    "footer.and": "and",
+    "footer.built": "",
+    "footer.note": "Coral Orange Theme · Pure Frontend · Zero Dependencies",
+    "video.survivor": "Dark Night Survivor · Game Preview",
+    "video.planewar": "Plane War · Game Preview"
+  }
+};
+
+let currentLang = 'zh';
+
+function applyLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.documentElement.setAttribute('data-lang', lang);
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key]) el.textContent = i18n[lang][key];
+  });
+  
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
+  });
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+/* ==================== Navigation ==================== */
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('mobile-open');
+});
+
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('mobile-open'));
+});
+
+/* ==================== Scroll Reveal ==================== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+  observer.observe(el);
+});
+
+/* ==================== Hero Background Canvas ==================== */
+const heroCanvas = document.getElementById('heroCanvas');
+const heroCtx = heroCanvas.getContext('2d');
+let heroW, heroH, heroParticles = [];
+
+function resizeHeroCanvas() {
+  heroW = heroCanvas.width = heroCanvas.offsetWidth;
+  heroH = heroCanvas.height = heroCanvas.offsetHeight;
+  heroParticles = [];
+  const count = Math.floor((heroW * heroH) / 18000);
+  for (let i = 0; i < count; i++) {
+    heroParticles.push({
+      x: Math.random() * heroW,
+      y: Math.random() * heroH,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 3 + 1,
+      a: Math.random() * 0.15 + 0.05,
+      hue: Math.random() > 0.5 ? 16 : 200
+    });
+  }
+}
+
+function drawHeroBg() {
+  heroCtx.clearRect(0, 0, heroW, heroH);
+  
+  // Gradient background
+  const grad = heroCtx.createRadialGradient(heroW * 0.3, heroH * 0.4, 0, heroW * 0.5, heroH * 0.5, heroW * 0.8);
+  grad.addColorStop(0, 'rgba(255, 248, 245, 1)');
+  grad.addColorStop(0.5, 'rgba(255, 240, 232, 0.8)');
+  grad.addColorStop(1, 'rgba(255, 248, 245, 1)');
+  heroCtx.fillStyle = grad;
+  heroCtx.fillRect(0, 0, heroW, heroH);
+  
+  // Floating particles
+  heroParticles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    if (p.x < 0) p.x = heroW;
+    if (p.x > heroW) p.x = 0;
+    if (p.y < 0) p.y = heroH;
+    if (p.y > heroH) p.y = 0;
+    
+    heroCtx.beginPath();
+    heroCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    if (p.hue === 16) {
+      heroCtx.fillStyle = `rgba(255, 107, 71, ${p.a})`;
+    } else {
+      heroCtx.fillStyle = `rgba(135, 169, 107, ${p.a * 0.6})`;
+    }
+    heroCtx.fill();
+  });
+  
+  // Connecting lines
+  for (let i = 0; i < heroParticles.length; i++) {
+    for (let j = i + 1; j < heroParticles.length; j++) {
+      const dx = heroParticles[i].x - heroParticles[j].x;
+      const dy = heroParticles[i].y - heroParticles[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        heroCtx.beginPath();
+        heroCtx.moveTo(heroParticles[i].x, heroParticles[i].y);
+        heroCtx.lineTo(heroParticles[j].x, heroParticles[j].y);
+        heroCtx.strokeStyle = `rgba(255, 107, 71, ${0.08 * (1 - dist / 120)})`;
+        heroCtx.lineWidth = 1;
+        heroCtx.stroke();
+      }
+    }
+  }
+  
+  requestAnimationFrame(drawHeroBg);
+}
+
+resizeHeroCanvas();
+drawHeroBg();
+window.addEventListener('resize', resizeHeroCanvas);
+
+/* ==================== Video Modal & Game Trailers ==================== */
+const videoModal = document.getElementById('videoModal');
+const videoClose = document.getElementById('videoClose');
+const videoTitle = document.getElementById('videoTitle');
+const trailerCanvas = document.getElementById('trailerCanvas');
+const trailerCtx = trailerCanvas.getContext('2d');
+
+let trailerAnim = null;
+
+function openVideoModal(game) {
+  videoModal.classList.add('active');
+  videoTitle.textContent = i18n[currentLang][`video.${game}`];
+  
+  setTimeout(() => {
+    const rect = videoModal.querySelector('.video-modal-body').getBoundingClientRect();
+    trailerCanvas.width = rect.width;
+    trailerCanvas.height = rect.height;
+    
+    if (game === 'survivor') {
+      startSurvivorTrailer();
+    } else if (game === 'planewar') {
+      startPlaneWarTrailer();
+    }
+  }, 100);
+}
+
+function closeVideoModal() {
+  videoModal.classList.remove('active');
+  if (trailerAnim) cancelAnimationFrame(trailerAnim);
+  trailerAnim = null;
+}
+
+videoClose.addEventListener('click', closeVideoModal);
+videoModal.addEventListener('click', (e) => {
+  if (e.target === videoModal) closeVideoModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && videoModal.classList.contains('active')) closeVideoModal();
+});
+
+/* --- Survivor Game Trailer --- */
+function startSurvivorTrailer() {
+  const ctx = trailerCtx;
+  const W = trailerCanvas.width;
+  const H = trailerCanvas.height;
+  
+  let time = 0;
+  const enemies = [];
+  const projectiles = [];
+  
+  // Spawn enemies
+  for (let i = 0; i < 30; i++) {
+    enemies.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      type: Math.floor(Math.random() * 4),
+      r: 12 + Math.random() * 6,
+      speed: 0.5 + Math.random() * 0.8,
+      hp: 1
+    });
+  }
+  
+  const player = { x: W / 2, y: H / 2, r: 16 };
+  
+  function drawScene() {
+    // Dark background
+    const bgGrad = ctx.createRadialGradient(W/2, H/2, 50, W/2, H/2, W);
+    bgGrad.addColorStop(0, '#1a1a2e');
+    bgGrad.addColorStop(1, '#0a0a1a');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, W, H);
+    
+    // Grid
+    ctx.strokeStyle = 'rgba(255,107,71,0.03)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x < W; x += 40) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = 0; y < H; y += 40) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+    
+    // Move player in a circle
+    player.x = W/2 + Math.cos(time * 0.02) * 100;
+    player.y = H/2 + Math.sin(time * 0.02) * 80;
+    
+    // Draw enemies
+    enemies.forEach((e, i) => {
+      const dx = player.x - e.x;
+      const dy = player.y - e.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      e.x += (dx / dist) * e.speed;
+      e.y += (dy / dist) * e.speed;
+      
+      // Draw enemy (simplified cartoon)
+      ctx.save();
+      ctx.translate(e.x, e.y);
+      
+      const colors = ['#4CAF50', '#9C27B0', '#E0E0E0', '#FF7043'];
+      const c = colors[e.type];
+      
+      // Shadow
+      ctx.fillStyle = 'rgba(0,0,0,0.3)';
+      ctx.beginPath();
+      ctx.ellipse(0, e.r * 0.8, e.r * 0.8, e.r * 0.3, 0, 0, Math.PI*2);
+      ctx.fill();
+      
+      // Body
+      ctx.fillStyle = c;
+      ctx.beginPath();
+      ctx.arc(0, 0, e.r, 0, Math.PI*2);
+      ctx.fill();
+      
+      // Eyes
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.arc(-e.r*0.3, -e.r*0.2, e.r*0.2, 0, Math.PI*2);
+      ctx.arc(e.r*0.3, -e.r*0.2, e.r*0.2, 0, Math.PI*2);
+      ctx.fill();
+      
+      ctx.fillStyle = '#000';
+      ctx.beginPath();
+      ctx.arc(-e.r*0.3, -e.r*0.2, e.r*0.1, 0, Math.PI*2);
+      ctx.arc(e.r*0.3, -e.r*0.2, e.r*0.1, 0, Math.PI*2);
+      ctx.fill();
+      
+      ctx.restore();
+      
+      // Auto-fire at nearby enemies
+      if (time % 30 === 0 && dist < 200) {
+        projectiles.push({
+          x: player.x, y: player.y,
+          vx: (dx/dist) * 5, vy: (dy/dist) * 5,
+          r: 5
+        });
+      }
+    });
+    
+    // Draw projectiles
+    for (let i = projectiles.length - 1; i >= 0; i--) {
+      const p = projectiles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      
+      // Trail
+      ctx.fillStyle = 'rgba(255, 107, 71, 0.3)';
+      ctx.beginPath();
+      ctx.arc(p.x - p.vx*2, p.y - p.vy*2, p.r * 0.6, 0, Math.PI*2);
+      ctx.fill();
+      
+      // Bullet
+      ctx.fillStyle = '#FF6B47';
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = '#FF6B47';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      
+      // Check collision
+      let hit = false;
+      enemies.forEach((e, ei) => {
+        const ddx = p.x - e.x;
+        const ddy = p.y - e.y;
+        if (Math.sqrt(ddx*ddx + ddy*ddy) < e.r + p.r) {
+          hit = true;
+          // Respawn enemy
+          e.x = Math.random() * W;
+          e.y = Math.random() * H;
+          
+          // Explosion particles
+          ctx.fillStyle = 'rgba(255, 200, 100, 0.6)';
+          for (let k = 0; k < 5; k++) {
+            ctx.beginPath();
+            ctx.arc(e.x + (Math.random()-0.5)*20, e.y + (Math.random()-0.5)*20, 3, 0, Math.PI*2);
+            ctx.fill();
+          }
+        }
+      });
+      
+      if (hit || p.x < 0 || p.x > W || p.y < 0 || p.y > H) {
+        projectiles.splice(i, 1);
+      }
+    }
+    
+    // Draw player (blue-clothed hero)
+    ctx.save();
+    ctx.translate(player.x, player.y);
+    
+    // Aura
+    const auraGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 50);
+    auraGrad.addColorStop(0, 'rgba(100, 150, 255, 0.15)');
+    auraGrad.addColorStop(1, 'rgba(100, 150, 255, 0)');
+    ctx.fillStyle = auraGrad;
+    ctx.beginPath();
+    ctx.arc(0, 0, 50, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.3)';
+    ctx.beginPath();
+    ctx.ellipse(0, player.r * 0.8, player.r * 0.8, player.r * 0.3, 0, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Body (blue)
+    ctx.fillStyle = '#2196F3';
+    ctx.beginPath();
+    ctx.arc(0, 0, player.r, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Head (big head, skin tone)
+    ctx.fillStyle = '#FFCC80';
+    ctx.beginPath();
+    ctx.arc(0, -player.r*0.1, player.r*0.85, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Eyes
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(-player.r*0.3, -player.r*0.2, player.r*0.22, 0, Math.PI*2);
+    ctx.arc(player.r*0.3, -player.r*0.2, player.r*0.22, 0, Math.PI*2);
+    ctx.fill();
+    
+    ctx.fillStyle = '#000';
+    ctx.beginPath();
+    ctx.arc(-player.r*0.3, -player.r*0.2, player.r*0.12, 0, Math.PI*2);
+    ctx.arc(player.r*0.3, -player.r*0.2, player.r*0.12, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Smile
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(0, player.r*0.2, player.r*0.25, 0, Math.PI);
+    ctx.stroke();
+    
+    ctx.restore();
+    
+    // HUD
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.font = '600 14px Inter, sans-serif';
+    ctx.fillText(`⚔️ Weapons: 3 | 🏆 Level ${Math.floor(time/60)+1} | ⏱️ ${Math.floor(time/10)}s`, 20, 30);
+    
+    time++;
+    trailerAnim = requestAnimationFrame(drawScene);
+  }
+  
+  drawScene();
+}
+
+/* --- Plane War Game Trailer --- */
+function startPlaneWarTrailer() {
+  const ctx = trailerCtx;
+  const W = trailerCanvas.width;
+  const H = trailerCanvas.height;
+  
+  let time = 0;
+  const bullets = [];
+  const enemies = [];
+  const particles = [];
+  let player = { x: W/2, y: H - 80, w: 40, h: 40 };
+  
+  // Stars
+  const stars = [];
+  for (let i = 0; i < 100; i++) {
+    stars.push({ x: Math.random()*W, y: Math.random()*H, s: Math.random()*2, v: 0.5+Math.random()*2 });
+  }
+  
+  function drawScene() {
+    // Sky gradient
+    const skyGrad = ctx.createLinearGradient(0, 0, 0, H);
+    skyGrad.addColorStop(0, '#0a1628');
+    skyGrad.addColorStop(0.5, '#1a3a5c');
+    skyGrad.addColorStop(1, '#2a5a8c');
+    ctx.fillStyle = skyGrad;
+    ctx.fillRect(0, 0, W, H);
+    
+    // Stars
+    stars.forEach(s => {
+      s.y += s.v;
+      if (s.y > H) { s.y = 0; s.x = Math.random()*W; }
+      ctx.fillStyle = `rgba(255,255,255,${0.3 + s.s * 0.3})`;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.s, 0, Math.PI*2);
+      ctx.fill();
+    });
+    
+    // Spawn enemies
+    if (time % 40 === 0) {
+      enemies.push({
+        x: Math.random() * (W - 60) + 30,
+        y: -30,
+        type: Math.floor(Math.random() * 3),
+        hp: 1 + Math.floor(Math.random() * 2)
+      });
+    }
+    
+    // Player movement
+    player.x = W/2 + Math.sin(time * 0.03) * 150;
+    
+    // Auto fire
+    if (time % 12 === 0) {
+      bullets.push({ x: player.x - 8, y: player.y - 20, vy: -8, type: 'player' });
+      bullets.push({ x: player.x + 8, y: player.y - 20, vy: -8, type: 'player' });
+    }
+    
+    // Draw player plane
+    ctx.save();
+    ctx.translate(player.x, player.y);
+    
+    // Shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.2)';
+    ctx.beginPath();
+    ctx.ellipse(0, 25, 20, 6, 0, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Body
+    ctx.fillStyle = '#FF6B47';
+    ctx.beginPath();
+    ctx.moveTo(0, -25);
+    ctx.lineTo(-20, 15);
+    ctx.lineTo(-10, 10);
+    ctx.lineTo(-15, 20);
+    ctx.lineTo(0, 15);
+    ctx.lineTo(15, 20);
+    ctx.lineTo(10, 10);
+    ctx.lineTo(20, 15);
+    ctx.closePath();
+    ctx.fill();
+    
+    // Cockpit
+    ctx.fillStyle = '#FFD54F';
+    ctx.beginPath();
+    ctx.arc(0, -5, 6, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Engine flame
+    ctx.fillStyle = 'rgba(255, 200, 0, 0.6)';
+    ctx.beginPath();
+    ctx.moveTo(-4, 18);
+    ctx.lineTo(0, 25 + Math.sin(time * 0.5) * 4);
+    ctx.lineTo(4, 18);
+    ctx.fill();
+    
+    ctx.restore();
+    
+    // Update & draw bullets
+    for (let i = bullets.length - 1; i >= 0; i--) {
+      const b = bullets[i];
+      b.y += b.vy;
+      
+      if (b.type === 'player') {
+        // Player bullet
+        ctx.fillStyle = '#FFD54F';
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#FFD54F';
+        ctx.fillRect(b.x - 2, b.y - 8, 4, 12);
+        ctx.shadowBlur = 0;
+      } else {
+        // Enemy bullet
+        ctx.fillStyle = '#FF5252';
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, 4, 0, Math.PI*2);
+        ctx.fill();
+      }
+      
+      // Remove off-screen
+      if (b.y < -20 || b.y > H + 20) {
+        bullets.splice(i, 1);
+        continue;
+      }
+      
+      // Check collisions
+      if (b.type === 'player') {
+        for (let j = enemies.length - 1; j >= 0; j--) {
+          const e = enemies[j];
+          if (Math.abs(b.x - e.x) < 20 && Math.abs(b.y - e.y) < 20) {
+            e.hp--;
+            if (e.hp <= 0) {
+              // Explosion
+              for (let k = 0; k < 8; k++) {
+                particles.push({
+                  x: e.x, y: e.y,
+                  vx: (Math.random()-0.5)*6,
+                  vy: (Math.random()-0.5)*6,
+                  life: 30,
+                  color: ['#FF6B47', '#FFD54F', '#FF5252'][Math.floor(Math.random()*3)]
+                });
+              }
+              enemies.splice(j, 1);
+            }
+            bullets.splice(i, 1);
+            break;
+          }
+        }
+      }
+    }
+    
+    // Update & draw enemies
+    enemies.forEach(e => {
+      e.y += 1.5;
+      
+      ctx.save();
+      ctx.translate(e.x, e.y);
+      ctx.rotate(Math.PI);
+      
+      const colors = ['#9C27B0', '#4CAF50', '#FF9800'];
+      const c = colors[e.type];
+      
+      ctx.fillStyle = c;
+      ctx.beginPath();
+      ctx.moveTo(0, -20);
+      ctx.lineTo(-15, 10);
+      ctx.lineTo(0, 5);
+      ctx.lineTo(15, 10);
+      ctx.closePath();
+      ctx.fill();
+      
+      ctx.fillStyle = '#333';
+      ctx.beginPath();
+      ctx.arc(0, -5, 4, 0, Math.PI*2);
+      ctx.fill();
+      
+      ctx.restore();
+    });
+    
+    // Remove off-screen enemies
+    for (let i = enemies.length - 1; i >= 0; i--) {
+      if (enemies[i].y > H + 30) enemies.splice(i, 1);
+    }
+    
+    // Particles
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life--;
+      
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.life / 30;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 3, 0, Math.PI*2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      
+      if (p.life <= 0) particles.splice(i, 1);
+    }
+    
+    // HUD
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.font = '600 14px Inter, sans-serif';
+    ctx.fillText(`🏆 Score: ${time * 10} | ❤️ x3 | 🎯 Level ${Math.floor(time/200)+1}`, 20, 30);
+    
+    time++;
+    trailerAnim = requestAnimationFrame(drawScene);
+  }
+  
+  drawScene();
+}
+
+/* ==================== Init ==================== */
+applyLang('zh');
+</script>
+</body>
+</html>
