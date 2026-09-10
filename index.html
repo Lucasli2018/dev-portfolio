@@ -1319,7 +1319,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           <div class="label" data-i18n="hero.stat1">独立项目</div>
         </div>
         <div class="stat-item">
-          <div class="num">3</div>
+          <div class="num">4</div>
           <div class="label" data-i18n="hero.stat2">网页游戏</div>
         </div>
         <div class="stat-item">
@@ -1483,6 +1483,51 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
             <span data-i18n="common.play">在线试玩</span>
           </a>
           <a href="https://gitee.com/li-luoqiang/kingdom-defense" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game 4: Snake -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <img src="assets/snake-cover.png" alt="贪吃蛇" loading="lazy">
+        <div class="play-overlay" onclick="openVideoModal('snake')">
+          <div class="play-icon">▶</div>
+          <span data-i18n="common.video">视频</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">Canvas</span>
+          <span class="tech-tag">Roguelite</span>
+          <span class="tech-tag">零依赖</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">04 / GAME</div>
+        <h3 data-i18n="snake.title">贪吃蛇</h3>
+        <div class="project-subtitle" data-i18n="snake.subtitle">Snake · Roguelite 贪吃蛇</div>
+        <p data-i18n="snake.desc">
+          经典贪吃蛇的 Roguelite 进化版。撞墙只扣生命不直接死亡，连吃叠加连击倍率，每过一关从三张升级卡中选一张，第 3/6 关迎战 Boss 蛇。Canvas 单文件实现，零依赖。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">🎮 <span data-i18n="snake.f1">Roguelite 升级卡</span></li>
+          <li class="feature-chip">❤️ <span data-i18n="snake.f2">3 生命系统</span></li>
+          <li class="feature-chip">🔥 <span data-i18n="snake.f3">连击倍率</span></li>
+          <li class="feature-chip">👹 <span data-i18n="snake.f4">Boss 蛇</span></li>
+          <li class="feature-chip">🏆 <span data-i18n="snake.f5">排行榜 TOP 10</span></li>
+        </ul>
+        <div class="project-links">
+          <button class="link-btn play" onclick="openVideoModal('snake')">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
+          <a href="https://snake-game-ah7.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <span data-i18n="common.play">在线试玩</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/snake-game" target="_blank" class="link-btn source">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
             <span data-i18n="common.source">源码</span>
           </a>
@@ -1905,7 +1950,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <div class="about-visual reveal-right">
         <div class="about-stat-card">
           <div class="icon">🎮</div>
-          <div class="num">3</div>
+          <div class="num">4</div>
           <div class="label" data-i18n="about.s1">网页游戏</div>
         </div>
         <div class="about-stat-card">
@@ -1957,6 +2002,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <a href="https://kingdom-defense.pages.dev/" target="_blank" class="contact-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7v10c0 5.05 3.41 9.76 10 11 6.59-1.24 10-5.95 10-11V7l-10-5z"/></svg>
         <span data-i18n="contact.game3">王国守卫</span>
+      </a>
+      <a href="https://snake-game-ah7.pages.dev/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12c0-4 3-7 7-7s7 3 7 7-3 7-7 7-7-3-7-7z"/><path d="M14 5l4 0M14 19l4 0M5 14l0-4"/></svg>
+        <span data-i18n="contact.game4">贪吃蛇</span>
       </a>
       <a href="https://workbench-mobile-cod.pages.dev/" target="_blank" class="contact-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2v8l6 3"/></svg>
@@ -2031,6 +2080,14 @@ const i18n = {
     "kingdom.f3": "Boss 波",
     "kingdom.f4": "金币经济系统",
     "kingdom.f5": "塔升级路线",
+    "snake.title": "贪吃蛇",
+    "snake.subtitle": "Snake · Roguelite 贪吃蛇",
+    "snake.desc": "经典贪吃蛇的 Roguelite 进化版。撞墙只扣生命不直接死亡，连吃叠加连击倍率，每过一关从三张升级卡中选一张，第 3/6 关迎战 Boss 蛇。Canvas 单文件实现，零依赖。",
+    "snake.f1": "Roguelite 升级卡",
+    "snake.f2": "3 生命系统",
+    "snake.f3": "连击倍率",
+    "snake.f4": "Boss 蛇",
+    "snake.f5": "排行榜 TOP 10",
     "app.tag": "WEB APPS",
     "app.title": "Web 应用",
     "app.desc": "从原型到上线，每一个应用都在 Cloudflare Pages 上运行。",
@@ -2125,6 +2182,7 @@ const i18n = {
     "contact.game1": "幸存者",
     "contact.game2": "飞机大战",
     "contact.game3": "王国守卫",
+    "contact.game4": "贪吃蛇",
     "contact.app": "温暖陪伴",
     "contact.app2": "时间管理局",
     "common.play": "在线试玩",
@@ -2137,7 +2195,8 @@ const i18n = {
     "footer.note": "珊瑚橙主题 · 游戏 · 应用 · 插件",
     "video.survivor": "暗夜幸存者 · 游戏预览",
     "video.planewar": "飞机大战 · 游戏预览",
-    "video.kingdom": "王国守卫 · 塔防 · 游戏预览"
+    "video.kingdom": "王国守卫 · 塔防 · 游戏预览",
+    "video.snake": "贪吃蛇 · 游戏预览"
   },
   en: {
     "nav.projects": "Work",
@@ -2184,6 +2243,14 @@ const i18n = {
     "kingdom.f3": "Boss Waves",
     "kingdom.f4": "Gold Economy",
     "kingdom.f5": "Tower Upgrades",
+    "snake.title": "Snake",
+    "snake.subtitle": "Snake · Roguelite Snake",
+    "snake.desc": "A Roguelite evolution of the classic Snake game. Crashing only costs a life, consecutive eating builds combo multiplier, choose from 3 upgrade cards each level, and face Boss Snake at levels 3 and 6. Canvas single-file, zero dependencies.",
+    "snake.f1": "Roguelite Upgrade Cards",
+    "snake.f2": "3 Life System",
+    "snake.f3": "Combo Multiplier",
+    "snake.f4": "Boss Snake",
+    "snake.f5": "Leaderboard TOP 10",
     "app.tag": "WEB APPS",
     "app.title": "Web Apps",
     "app.desc": "From prototype to production — every app runs on Cloudflare Pages.",
@@ -2278,6 +2345,7 @@ const i18n = {
     "contact.game1": "Survivor",
     "contact.game2": "Plane War",
     "contact.game3": "Kingdom Defense",
+    "contact.game4": "Snake",
     "contact.app": "Warm Companion",
     "contact.app2": "Workbench",
     "common.play": "Play Now",
@@ -2290,7 +2358,8 @@ const i18n = {
     "footer.note": "Coral Orange Theme · Games · Apps · Plugins",
     "video.survivor": "Dark Night Survivor · Game Preview",
     "video.planewar": "Plane War · Game Preview",
-    "video.kingdom": "Kingdom Defense · Game Preview"
+    "video.kingdom": "Kingdom Defense · Game Preview",
+    "video.snake": "Snake · Game Preview"
   }
 };
 
@@ -2498,6 +2567,8 @@ function openVideoModal(game) {
       startPlaneWarTrailer();
     } else if (game === 'kingdom') {
       startKingdomDefenseTrailer();
+    } else if (game === 'snake') {
+      startSnakeTrailer();
     }
   }, 100);
 }
@@ -3273,6 +3344,219 @@ function startKingdomDefenseTrailer() {
     ctx.fillStyle = hudColor;
     ctx.font = '600 14px Inter, sans-serif';
     ctx.fillText(`💰 ${gold}  ❤️ ${lives}  🌊 Wave ${wave}  🏰 Kingdom Defense`, 20, 30);
+
+    time++;
+    trailerAnim = requestAnimationFrame(drawScene);
+  }
+
+  drawScene();
+}
+
+/* --- Snake Game Trailer --- */
+function startSnakeTrailer() {
+  const ctx = trailerCtx;
+  const W = trailerCanvas.width;
+  const H = trailerCanvas.height;
+
+  let time = 0;
+  let score = 0;
+  let combo = 1;
+
+  const cellSize = 20;
+  const cols = Math.floor(W / cellSize);
+  const rows = Math.floor(H / cellSize);
+  const offsetX = (W - cols * cellSize) / 2;
+  const offsetY = (H - rows * cellSize) / 2;
+
+  // Snake AI (auto-play)
+  const snake = [];
+  for (let i = 0; i < 5; i++) {
+    snake.push({ x: Math.floor(cols / 2) - i, y: Math.floor(rows / 2) });
+  }
+  let dir = { x: 1, y: 0 };
+  let moveTimer = 0;
+  const moveInterval = 6;
+
+  let food = { x: Math.floor(cols / 2) + 5, y: Math.floor(rows / 2) };
+  let comboTimer = 0;
+  const particles = [];
+
+  function spawnFood() {
+    food = {
+      x: Math.floor(Math.random() * cols),
+      y: Math.floor(Math.random() * rows)
+    };
+    // Don't spawn on snake
+    while (snake.some(s => s.x === food.x && s.y === food.y)) {
+      food = {
+        x: Math.floor(Math.random() * cols),
+        y: Math.floor(Math.random() * rows)
+      };
+    }
+  }
+
+  function drawScene() {
+    // Background
+    const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+    bgGrad.addColorStop(0, '#0a1929');
+    bgGrad.addColorStop(1, '#0d1f33');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Grid
+    ctx.strokeStyle = 'rgba(76, 175, 80, 0.04)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= cols; i++) {
+      ctx.beginPath();
+      ctx.moveTo(offsetX + i * cellSize, offsetY);
+      ctx.lineTo(offsetX + i * cellSize, offsetY + rows * cellSize);
+      ctx.stroke();
+    }
+    for (let j = 0; j <= rows; j++) {
+      ctx.beginPath();
+      ctx.moveTo(offsetX, offsetY + j * cellSize);
+      ctx.lineTo(offsetX + cols * cellSize, offsetY + j * cellSize);
+      ctx.stroke();
+    }
+
+    // Border glow
+    ctx.strokeStyle = 'rgba(76, 175, 80, 0.2)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(offsetX, offsetY, cols * cellSize, rows * cellSize);
+
+    // AI move logic
+    moveTimer++;
+    if (moveTimer >= moveInterval) {
+      moveTimer = 0;
+
+      // Simple AI: move toward food, avoid walls and self
+      const head = snake[0];
+      const possibleDirs = [
+        { x: 1, y: 0 }, { x: -1, y: 0 },
+        { x: 0, y: 1 }, { x: 0, y: -1 }
+      ].filter(d => !(d.x === -dir.x && d.y === -dir.y)); // No reverse
+
+      let bestDir = dir;
+      let bestScore = -999;
+      for (const d of possibleDirs) {
+        const nx = head.x + d.x;
+        const ny = head.y + d.y;
+        // Wall check
+        if (nx < 0 || nx >= cols || ny < 0 || ny >= rows) continue;
+        // Self check
+        if (snake.some((s, si) => si < snake.length - 1 && s.x === nx && s.y === ny)) continue;
+        // Distance to food
+        const dist = Math.abs(nx - food.x) + Math.abs(ny - food.y);
+        let s = 100 - dist;
+        // Prefer continuing same direction
+        if (d.x === dir.x && d.y === dir.y) s += 5;
+        if (s > bestScore) { bestScore = s; bestDir = d; }
+      }
+      dir = bestDir;
+
+      // Move
+      const newHead = { x: head.x + dir.x, y: head.y + dir.y };
+
+      // Check food
+      if (newHead.x === food.x && newHead.y === food.y) {
+        score += 10 * combo;
+        combo++;
+        comboTimer = 60;
+        // Eat particles
+        const fx = offsetX + food.x * cellSize + cellSize / 2;
+        const fy = offsetY + food.y * cellSize + cellSize / 2;
+        for (let k = 0; k < 12; k++) {
+          particles.push({
+            x: fx, y: fy,
+            vx: (Math.random() - 0.5) * 6,
+            vy: (Math.random() - 0.5) * 6,
+            life: 25,
+            color: ['#4CAF50', '#FFD54F', '#FF6B47'][Math.floor(Math.random() * 3)]
+          });
+        }
+        spawnFood();
+      } else {
+        snake.pop();
+      }
+      snake.unshift(newHead);
+    }
+
+    // Draw food (pulsing)
+    const pulse = 1 + Math.sin(time * 0.15) * 0.15;
+    const fx = offsetX + food.x * cellSize + cellSize / 2;
+    const fy = offsetY + food.y * cellSize + cellSize / 2;
+    ctx.shadowBlur = 12;
+    ctx.shadowColor = '#FF6B47';
+    ctx.fillStyle = '#FF6B47';
+    ctx.beginPath();
+    ctx.arc(fx, fy, (cellSize / 2 - 2) * pulse, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Draw snake
+    snake.forEach((s, i) => {
+      const sx = offsetX + s.x * cellSize;
+      const sy = offsetY + s.y * cellSize;
+      const isHead = i === 0;
+      const t = i / snake.length;
+
+      // Body gradient green
+      const r = Math.floor(76 + (139 - 76) * t);
+      const g = Math.floor(175 - (175 - 195) * t);
+      const b = Math.floor(80 - (80 - 74) * t);
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
+
+      // Rounded rect
+      const pad = isHead ? 1 : 2;
+      const radius = isHead ? 6 : 4;
+      ctx.beginPath();
+      ctx.roundRect(sx + pad, sy + pad, cellSize - pad * 2, cellSize - pad * 2, radius);
+      ctx.fill();
+
+      // Head eyes
+      if (isHead) {
+        ctx.fillStyle = '#fff';
+        const eyeOffX = dir.x * 3;
+        const eyeOffY = dir.y * 3;
+        const eyePerpX = dir.y * 4;
+        const eyePerpY = dir.x * 4;
+        ctx.beginPath();
+        ctx.arc(sx + cellSize / 2 + eyeOffX - eyePerpX, sy + cellSize / 2 + eyeOffY - eyePerpY, 3, 0, Math.PI * 2);
+        ctx.arc(sx + cellSize / 2 + eyeOffX + eyePerpX, sy + cellSize / 2 + eyeOffY + eyePerpY, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#1a1a2e';
+        ctx.beginPath();
+        ctx.arc(sx + cellSize / 2 + eyeOffX - eyePerpX, sy + cellSize / 2 + eyeOffY - eyePerpY, 1.5, 0, Math.PI * 2);
+        ctx.arc(sx + cellSize / 2 + eyeOffX + eyePerpX, sy + cellSize / 2 + eyeOffY + eyePerpY, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    });
+
+    // Particles
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.x += p.vx; p.y += p.vy; p.life--;
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.life / 25;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      if (p.life <= 0) particles.splice(i, 1);
+    }
+
+    // Combo decay
+    if (comboTimer > 0) {
+      comboTimer--;
+      if (comboTimer === 0) combo = 1;
+    }
+
+    // HUD
+    const isCyberHUD4 = document.documentElement.getAttribute('data-theme') === 'cyberpunk';
+    const hudColor4 = isCyberHUD4 ? 'rgba(164, 230, 57, 0.9)' : 'rgba(255, 255, 255, 0.85)';
+    ctx.fillStyle = hudColor4;
+    ctx.font = '600 14px Inter, sans-serif';
+    ctx.fillText(`🍎 ${score}  🔥 Combo x${combo}  🐍 Len ${snake.length}  Lv.${Math.floor(score / 50) + 1}`, 20, 30);
 
     time++;
     trailerAnim = requestAnimationFrame(drawScene);
