@@ -1173,6 +1173,90 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; }
 }
+
+/* ==================== Project Visual Gradient (no image) ==================== */
+.project-visual-gradient {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.project-visual-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.15), transparent 60%);
+  pointer-events: none;
+}
+.project-visual-gradient .grad-icon {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+  z-index: 1;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Per-project gradients */
+.grad-kingdom { background: linear-gradient(135deg, #1B3A2F, #2D5A3D, #4A7C59); }
+.grad-poetry { background: linear-gradient(135deg, #2D1B3D, #4A2D6D, #F4B942); }
+.grad-workbench { background: linear-gradient(135deg, #FF6B47, #FF8A6B, #FFB088); }
+.grad-newspaper { background: linear-gradient(135deg, #F4B942, #FFD54F, #FFF3C4); }
+.grad-checkin { background: linear-gradient(135deg, #2D5A8C, #4A7CB5, #6BA0D8); }
+.grad-pet { background: linear-gradient(135deg, #1A237E, #3949AB, #5C6BC0); }
+.grad-keyboard { background: linear-gradient(135deg, #1a1a2e, #2a2a4e, #4A3A6E); }
+
+/* ==================== App Section Multi-Card ==================== */
+.app-section .project-card { background: var(--white); }
+
+/* ==================== Plugins Section ==================== */
+.plugins-section { background: var(--white); }
+.plugins-section .project-card { background: var(--cream); }
+
+:root[data-theme="cyberpunk"] .plugins-section { background: var(--cream); }
+:root[data-theme="cyberpunk"] .plugins-section .project-card {
+  background: var(--cream-dark);
+  border: 1px solid rgba(164, 230, 57, 0.08);
+}
+:root[data-theme="cyberpunk"] .plugins-section .project-card:hover {
+  border-color: rgba(164, 230, 57, 0.2);
+}
+
+/* Plugin badge icon */
+.plugin-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+  box-shadow: var(--shadow-coral);
+}
+:root[data-theme="cyberpunk"] .plugin-icon {
+  background: linear-gradient(135deg, #A4E639, #8BC920);
+  box-shadow: 0 0 10px rgba(164, 230, 57, 0.3);
+}
+
+/* Cyberpunk theme for gradient visuals */
+:root[data-theme="cyberpunk"] .project-visual-gradient::after {
+  background: radial-gradient(ellipse at 30% 20%, rgba(164, 230, 57, 0.1), transparent 60%);
+}
+
+/* App section card override for cyberpunk */
+:root[data-theme="cyberpunk"] .app-section .project-card {
+  background: var(--cream-dark);
+  border: 1px solid rgba(164, 230, 57, 0.08);
+}
+:root[data-theme="cyberpunk"] .app-section .project-card:hover {
+  border-color: rgba(164, 230, 57, 0.2);
+}
 </style>
 </head>
 <body>
@@ -1185,7 +1269,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#projects" data-i18n="nav.projects">作品</a></li>
-    <li><a href="#app" data-i18n="nav.app">原型</a></li>
+    <li><a href="#app" data-i18n="nav.app">应用</a></li>
+    <li><a href="#plugins" data-i18n="nav.plugins">插件</a></li>
     <li><a href="#blog" data-i18n="nav.blog">博客</a></li>
     <li><a href="#about" data-i18n="nav.about">关于</a></li>
     <li><a href="#contact" data-i18n="nav.contact">联系</a></li>
@@ -1230,11 +1315,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="num">3+</div>
+          <div class="num">10+</div>
           <div class="label" data-i18n="hero.stat1">独立项目</div>
         </div>
         <div class="stat-item">
-          <div class="num">2</div>
+          <div class="num">3</div>
           <div class="label" data-i18n="hero.stat2">网页游戏</div>
         </div>
         <div class="stat-item">
@@ -1252,11 +1337,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         </div>
         <div class="float-card float-card-2">
           <span class="icon">📱</span>
-          <span data-i18n="hero.float2">App 原型</span>
+          <span data-i18n="hero.float2">Web 应用</span>
         </div>
         <div class="float-card float-card-3">
-          <span class="icon">⚡</span>
-          <span data-i18n="hero.float3">零依赖</span>
+          <span class="icon">🔌</span>
+          <span data-i18n="hero.float3">IDEA 插件</span>
         </div>
       </div>
     </div>
@@ -1269,7 +1354,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <div class="section-header reveal">
       <span class="section-tag" data-i18n="projects.tag">PORTFOLIO</span>
       <h2 data-i18n="projects.title">精选作品</h2>
-      <p data-i18n="projects.desc">每一款作品都是纯前端单文件实现，双击即玩，零依赖、零构建。</p>
+      <p data-i18n="projects.desc">网页游戏、Web 应用与 IDEA 插件，从想法到上线的完整作品集。</p>
     </div>
 
     <!-- Game 1: Survivor -->
@@ -1359,6 +1444,45 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         </div>
       </div>
     </div>
+
+    <!-- Game 3: Kingdom Defense -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="project-visual-gradient grad-kingdom">
+          <span class="grad-icon">🏰</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">HTML5 Canvas</span>
+          <span class="tech-tag">Tower Defense</span>
+          <span class="tech-tag">纯前端</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">03 / GAME</div>
+        <h3 data-i18n="kingdom.title">王国守卫 · 塔防</h3>
+        <div class="project-subtitle" data-i18n="kingdom.subtitle">Kingdom Defense · 策略塔防</div>
+        <p data-i18n="kingdom.desc">
+          纯前端实现的策略塔防游戏。在蜿蜒的路径上部署箭塔、炮塔、魔法塔，抵御一波波怪物入侵。多波次递增难度、Boss 波、金币经济系统、塔升级路线，Canvas 矢量绘制全部场景。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">🏹 <span data-i18n="kingdom.f1">3种防御塔</span></li>
+          <li class="feature-chip">📈 <span data-i18n="kingdom.f2">波次递增难度</span></li>
+          <li class="feature-chip">👹 <span data-i18n="kingdom.f3">Boss 波</span></li>
+          <li class="feature-chip">💰 <span data-i18n="kingdom.f4">金币经济系统</span></li>
+          <li class="feature-chip">⚡ <span data-i18n="kingdom.f5">塔升级路线</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://kingdom-defense.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.play">在线试玩</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/kingdom-defense" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1366,17 +1490,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <section class="section app-section" id="app">
   <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-tag" data-i18n="app.tag">APP PROTOTYPE</span>
-      <h2 data-i18n="app.title">应用原型</h2>
-      <p data-i18n="app.desc">从概念到交互，用原型快速验证产品想法。</p>
+      <span class="section-tag" data-i18n="app.tag">WEB APPS</span>
+      <h2 data-i18n="app.title">Web 应用</h2>
+      <p data-i18n="app.desc">从原型到上线，每一个应用都在 Cloudflare Pages 上运行。</p>
     </div>
 
-    <div class="app-card reveal">
-      <div class="app-preview">
+    <!-- App 1: Warm Companion -->
+    <div class="project-card reveal">
+      <div class="project-visual">
         <img src="assets/warmcompanion-cover.jpg" alt="温暖陪伴" loading="lazy">
+        <div class="project-visual-overlay">
+          <span class="tech-tag">Vanilla JS</span>
+          <span class="tech-tag">Chat UI</span>
+          <span class="tech-tag">珊瑚橙</span>
+        </div>
       </div>
       <div class="project-info">
-        <div class="project-number">03 / APP</div>
+        <div class="project-number">04 / APP</div>
         <h3 data-i18n="warm.title">温暖陪伴</h3>
         <div class="project-subtitle" data-i18n="warm.subtitle">Warm Companion · 情感陪伴聊天</div>
         <p data-i18n="warm.desc">
@@ -1395,6 +1525,243 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
             <span data-i18n="common.prototype">在线体验</span>
           </a>
           <a href="https://gitee.com/li-luoqiang/warm-companion" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- App 2: Poetry Cards -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="project-visual-gradient grad-poetry">
+          <span class="grad-icon">🎴</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">Vanilla JS</span>
+          <span class="tech-tag">Canvas</span>
+          <span class="tech-tag">古风</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">05 / APP</div>
+        <h3 data-i18n="poetry.title">古韵抽卡 · 一图一诗</h3>
+        <div class="project-subtitle" data-i18n="poetry.subtitle">Poetry Cards · 古诗词抽卡</div>
+        <p data-i18n="poetry.desc">
+          古风诗词抽卡 Web 应用。每张卡片配一首经典古诗词，用 Canvas 绘制水墨意境配图，抽卡动画、稀有度系统、诗词收藏册。将传统文化与游戏化体验融合，零依赖纯前端实现。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">🎴 <span data-i18n="poetry.f1">抽卡动画</span></li>
+          <li class="feature-chip">🎨 <span data-i18n="poetry.f2">Canvas 水墨配图</span></li>
+          <li class="feature-chip">💎 <span data-i18n="poetry.f3">稀有度系统</span></li>
+          <li class="feature-chip">📚 <span data-i18n="poetry.f4">诗词收藏册</span></li>
+          <li class="feature-chip">🏮 <span data-i18n="poetry.f5">古风视觉</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://poetry-cards.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <span data-i18n="common.prototype">在线体验</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/poetry-cards" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- App 3: Workbench Mobile -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="project-visual-gradient grad-workbench">
+          <span class="grad-icon">⏰</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">Vanilla JS</span>
+          <span class="tech-tag">PWA</span>
+          <span class="tech-tag">移动优先</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">06 / APP</div>
+        <h3 data-i18n="workbench.title">汪汪时间管理局</h3>
+        <div class="project-subtitle" data-i18n="workbench.subtitle">Workbench Mobile · 个人时间管理</div>
+        <p data-i18n="workbench.desc">
+          萌系风格的个人时间管理移动端 Web 应用。汪汪管家帮你规划每日日程、打卡习惯、记录待办。支持本地数据持久化、番茄钟计时、每日复盘，珊瑚橙卡通 UI 贯穿全局。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">📅 <span data-i18n="workbench.f1">日程管理</span></li>
+          <li class="feature-chip">🐾 <span data-i18n="workbench.f2">习惯打卡</span></li>
+          <li class="feature-chip">🍅 <span data-i18n="workbench.f3">番茄钟</span></li>
+          <li class="feature-chip">💾 <span data-i18n="workbench.f4">本地持久化</span></li>
+          <li class="feature-chip">📊 <span data-i18n="workbench.f5">每日复盘</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://workbench-mobile-cod.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <span data-i18n="common.prototype">在线体验</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/workbench-mobile" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- App 4: Cat Newspaper -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="project-visual-gradient grad-newspaper">
+          <span class="grad-icon">📰</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">Vanilla JS</span>
+          <span class="tech-tag">Responsive</span>
+          <span class="tech-tag">萌系</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">07 / APP</div>
+        <h3 data-i18n="newspaper.title">猫咪生活报 · 喵星人编辑部</h3>
+        <div class="project-subtitle" data-i18n="newspaper.subtitle">Cat Newspaper · 萌系生活报</div>
+        <p data-i18n="newspaper.desc">
+          以猫咪编辑部的萌系视角，生成每日生活报。涵盖天气、心情、待办、小贴士等模块，报纸排版风格 + 猫咪插画，每天都是一份新的「喵星人日报」。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">📰 <span data-i18n="newspaper.f1">报纸排版</span></li>
+          <li class="feature-chip">🐱 <span data-i18n="newspaper.f2">猫咪插画</span></li>
+          <li class="feature-chip">📅 <span data-i18n="newspaper.f3">每日生成</span></li>
+          <li class="feature-chip">🌤️ <span data-i18n="newspaper.f4">天气模块</span></li>
+          <li class="feature-chip">💡 <span data-i18n="newspaper.f5">每日小贴士</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://cat-newspaper-workbench.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <span data-i18n="common.prototype">在线体验</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/cat-newspaper-workbench" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- App 5: Checkin Workbench -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="project-visual-gradient grad-checkin">
+          <span class="grad-icon">✅</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">Vanilla JS</span>
+          <span class="tech-tag">localStorage</span>
+          <span class="tech-tag">打卡</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">08 / APP</div>
+        <h3 data-i18n="checkin.title">汪汪签到局</h3>
+        <div class="project-subtitle" data-i18n="checkin.subtitle">Checkin Workbench · 习惯签到</div>
+        <p data-i18n="checkin.desc">
+          汪汪主题的习惯签到 Web 应用。每日打卡、连续签到奖励、月度日历视图、习惯统计图表。用萌萌的汪汪鼓励你坚持好习惯，数据全部存储在本地浏览器。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">🐾 <span data-i18n="checkin.f1">每日签到</span></li>
+          <li class="feature-chip">🔥 <span data-i18n="checkin.f2">连续签到奖励</span></li>
+          <li class="feature-chip">📅 <span data-i18n="checkin.f3">月度日历</span></li>
+          <li class="feature-chip">📊 <span data-i18n="checkin.f4">统计图表</span></li>
+          <li class="feature-chip">🐕 <span data-i18n="checkin.f5">汪汪鼓励</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://checkin-workbench.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <span data-i18n="common.prototype">在线体验</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/checkin-workbench" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== IDEA Plugins Section ==================== -->
+<section class="section plugins-section" id="plugins">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="plugins.tag">IDEA PLUGINS</span>
+      <h2 data-i18n="plugins.title">IDEA 插件</h2>
+      <p data-i18n="plugins.desc">为 JetBrains 开发者生态打造的桌面工具插件。</p>
+    </div>
+
+    <!-- Plugin 1: Pet Whale -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="project-visual-gradient grad-pet">
+          <span class="grad-icon">🐳</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">Kotlin</span>
+          <span class="tech-tag">IntelliJ Platform</span>
+          <span class="tech-tag">桌面宠物</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">09 / PLUGIN</div>
+        <h3 data-i18n="pet.title">IDEA 桌面宠物插件</h3>
+        <div class="project-subtitle" data-i18n="pet.subtitle">Pet Whale · JetBrains 桌面宠物</div>
+        <p data-i18n="pet.desc">
+          在 IntelliJ IDEA 中养一只桌面宠物鲸鱼！ coding 时鲸鱼在状态栏游泳陪伴，定时提醒休息喝水，代码提交时冒泡庆祝。用 Kotlin 编写，基于 IntelliJ Platform SDK 开发。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">🐳 <span data-i18n="pet.f1">鲸鱼桌面宠物</span></li>
+          <li class="feature-chip">⏰ <span data-i18n="pet.f2">定时休息提醒</span></li>
+          <li class="feature-chip">🎉 <span data-i18n="pet.f3">提交冒泡庆祝</span></li>
+          <li class="feature-chip">🎨 <span data-i18n="pet.f4">动画状态机</span></li>
+          <li class="feature-chip">💧 <span data-i18n="pet.f5">喝水提醒</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://gitee.com/li-luoqiang/idea-pet-whale" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plugin 2: Keyboard Stats -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="project-visual-gradient grad-keyboard">
+          <span class="grad-icon">⌨️</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">Kotlin</span>
+          <span class="tech-tag">IntelliJ Platform</span>
+          <span class="tech-tag">统计</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">10 / PLUGIN</div>
+        <h3 data-i18n="keyboard.title">IDEA 工具窗口插件</h3>
+        <div class="project-subtitle" data-i18n="keyboard.subtitle">Keyboard Stats · 按键统计</div>
+        <p data-i18n="keyboard.desc">
+          IntelliJ IDEA 按键统计工具窗口插件。实时统计你在 IDE 中的按键次数、最常用快捷键、编码时长，以可视化图表展示。帮助开发者了解自己的编码习惯。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">⌨️ <span data-i18n="keyboard.f1">按键实时统计</span></li>
+          <li class="feature-chip">🔥 <span data-i18n="keyboard.f2">热门快捷键排行</span></li>
+          <li class="feature-chip">📊 <span data-i18n="keyboard.f3">可视化图表</span></li>
+          <li class="feature-chip">⏱️ <span data-i18n="keyboard.f4">编码时长追踪</span></li>
+          <li class="feature-chip">🏆 <span data-i18n="keyboard.f5">每日成就</span></li>
+        </ul>
+        <div class="project-links">
+          <a href="https://gitee.com/li-luoqiang/idea-keyboard-stats" target="_blank" class="link-btn play">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
             <span data-i18n="common.source">源码</span>
           </a>
@@ -1523,17 +1890,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           我是 Lucas Li，一名独立软件开发者。白天写 Java 经纪业务系统，夜晚和周末用 HTML5 Canvas 做游戏、用原生 JS 搭应用原型。
         </p>
         <p data-i18n="about.p2">
-          我相信好的产品不需要庞大的团队和复杂的框架——一个 HTML 文件、一份热爱、足够的细节打磨，就能创造出让人会心一笑的东西。所有作品都是纯前端单文件实现，双击即玩，零依赖。
+          我相信好的产品不需要庞大的团队和复杂的框架——一份热爱、足够的细节打磨，就能创造出让人会心一笑的东西。从网页游戏到 Web 应用，再到 IDEA 插件，每个作品都倾注了同样的用心。
         </p>
         <p data-i18n="about.p3">
-          擅长 Java 后端（恒生 UF3.0/JRESCloud）、HTML5 游戏开发、UI/UX 原型设计、Cloudflare Pages 部署。偏好珊瑚橙视觉风格与卡通萌系 UI。
+          擅长 Java 后端（恒生 UF3.0/JRESCloud）、HTML5 游戏开发、Web 应用原型设计、IntelliJ 插件开发、Cloudflare Pages 部署。偏好珊瑚橙视觉风格与卡通萌系 UI。
         </p>
         <div class="about-skills">
           <span class="skill-tag">Java</span>
+          <span class="skill-tag">Kotlin</span>
           <span class="skill-tag">HTML5 Canvas</span>
           <span class="skill-tag">JavaScript</span>
           <span class="skill-tag">Web Audio</span>
           <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">IntelliJ SDK</span>
           <span class="skill-tag">Cloudflare</span>
           <span class="skill-tag">UI/UX</span>
           <span class="skill-tag">Git</span>
@@ -1542,18 +1911,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <div class="about-visual reveal-right">
         <div class="about-stat-card">
           <div class="icon">🎮</div>
-          <div class="num">2</div>
+          <div class="num">3</div>
           <div class="label" data-i18n="about.s1">网页游戏</div>
         </div>
         <div class="about-stat-card">
           <div class="icon">📱</div>
-          <div class="num">1</div>
-          <div class="label" data-i18n="about.s2">APP 原型</div>
+          <div class="num">5</div>
+          <div class="label" data-i18n="about.s2">Web 应用</div>
         </div>
         <div class="about-stat-card">
-          <div class="icon">📝</div>
-          <div class="num">6+</div>
-          <div class="label" data-i18n="about.s3">技术文章</div>
+          <div class="icon">🔌</div>
+          <div class="num">2</div>
+          <div class="label" data-i18n="about.s3">IDEA 插件</div>
         </div>
         <div class="about-stat-card">
           <div class="icon">☕</div>
@@ -1591,10 +1960,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         <span data-i18n="contact.app">温暖陪伴</span>
       </a>
+      <a href="https://kingdom-defense.pages.dev/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7v10c0 5.05 3.41 9.76 10 11 6.59-1.24 10-5.95 10-11V7l-10-5z"/></svg>
+        <span data-i18n="contact.game3">王国守卫</span>
+      </a>
+      <a href="https://workbench-mobile-cod.pages.dev/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2v8l6 3"/></svg>
+        <span data-i18n="contact.app2">时间管理局</span>
+      </a>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Lucas Li. <span data-i18n="footer.made">用</span> <span class="footer-heart">♥</span> <span data-i18n="footer.and">和</span> HTML5 Canvas <span data-i18n="footer.built">构建</span></p>
-      <p data-i18n="footer.note">珊瑚橙主题 · 纯前端 · 零依赖</p>
+      <p data-i18n="footer.note">珊瑚橙主题 · 游戏 · 应用 · 插件</p>
     </div>
   </div>
 </section>
@@ -1617,24 +1994,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 const i18n = {
   zh: {
     "nav.projects": "作品",
-    "nav.app": "原型",
+    "nav.app": "应用",
+    "nav.plugins": "插件",
     "nav.blog": "博客",
     "nav.about": "关于",
     "nav.contact": "联系",
-    "hero.badge": "独立开发者 · 全栈 · 游戏制作",
+    "hero.badge": "独立开发者 · 全栈 · 游戏 / 应用 / 插件",
     "hero.title": "用代码创造<br><span class=\"accent\">有趣的东西</span>",
-    "hero.desc": "我是 Lucas Li，一名独立软件开发者。专注于网页游戏、移动应用原型与开发者工具。相信好的产品源于对细节的执着和对乐趣的追求。",
+    "hero.desc": "我是 Lucas Li，一名独立软件开发者。专注于网页游戏、Web 应用与开发者工具插件。相信好的产品源于对细节的执着和对乐趣的追求。",
     "hero.cta1": "查看作品",
     "hero.cta2": "联系我",
     "hero.stat1": "独立项目",
     "hero.stat2": "网页游戏",
     "hero.stat3": "纯前端",
     "hero.float1": "HTML5 游戏",
-    "hero.float2": "App 原型",
-    "hero.float3": "零依赖",
+    "hero.float2": "Web 应用",
+    "hero.float3": "IDEA 插件",
     "projects.tag": "精选作品",
     "projects.title": "精选作品",
-    "projects.desc": "每一款作品都是纯前端单文件实现，双击即玩，零依赖、零构建。",
+    "projects.desc": "网页游戏、Web 应用与 IDEA 插件，从想法到上线的完整作品集。",
     "survivor.title": "暗夜幸存者",
     "survivor.subtitle": "Survivor · 仿吸血鬼幸存者",
     "survivor.desc": "一款仿《吸血鬼幸存者》的浏览器小游戏。蓝衣大头小英雄在暗夜中对抗绿僵尸、紫蝙蝠、白骷髅、橙食人魔和红 Boss。5种武器全自动攻击，升级三选一，本地排行榜 Top 10。",
@@ -1651,9 +2029,17 @@ const i18n = {
     "planewar.f3": "程序化音效",
     "planewar.f4": "TOP 10 排行榜",
     "planewar.f5": "移动端适配",
-    "app.tag": "APP PROTOTYPE",
-    "app.title": "应用原型",
-    "app.desc": "从概念到交互，用原型快速验证产品想法。",
+    "kingdom.title": "王国守卫 · 塔防",
+    "kingdom.subtitle": "Kingdom Defense · 策略塔防",
+    "kingdom.desc": "纯前端实现的策略塔防游戏。在蜿蜒的路径上部署箭塔、炮塔、魔法塔，抵御一波波怪物入侵。多波次递增难度、Boss 波、金币经济系统、塔升级路线，Canvas 矢量绘制全部场景。",
+    "kingdom.f1": "3种防御塔",
+    "kingdom.f2": "波次递增难度",
+    "kingdom.f3": "Boss 波",
+    "kingdom.f4": "金币经济系统",
+    "kingdom.f5": "塔升级路线",
+    "app.tag": "WEB APPS",
+    "app.title": "Web 应用",
+    "app.desc": "从原型到上线，每一个应用都在 Cloudflare Pages 上运行。",
     "warm.title": "温暖陪伴",
     "warm.subtitle": "Warm Companion · 情感陪伴聊天",
     "warm.desc": "温柔治愈风格的情感陪伴聊天 App 界面原型。虚拟角色「阿溪」以温柔知性的学姐人设提供日常问候、情绪疏导与鼓励打气。三栏布局、逐字打字机效果、富文本与代码高亮，mock 流式回复。",
@@ -1662,6 +2048,57 @@ const i18n = {
     "warm.f3": "富文本+代码高亮",
     "warm.f4": "珊瑚橙主题",
     "warm.f5": "mock AI 回复",
+    "poetry.title": "古韵抽卡 · 一图一诗",
+    "poetry.subtitle": "Poetry Cards · 古诗词抽卡",
+    "poetry.desc": "古风诗词抽卡 Web 应用。每张卡片配一首经典古诗词，用 Canvas 绘制水墨意境配图，抽卡动画、稀有度系统、诗词收藏册。将传统文化与游戏化体验融合，零依赖纯前端实现。",
+    "poetry.f1": "抽卡动画",
+    "poetry.f2": "Canvas 水墨配图",
+    "poetry.f3": "稀有度系统",
+    "poetry.f4": "诗词收藏册",
+    "poetry.f5": "古风视觉",
+    "workbench.title": "汪汪时间管理局",
+    "workbench.subtitle": "Workbench Mobile · 个人时间管理",
+    "workbench.desc": "萌系风格的个人时间管理移动端 Web 应用。汪汪管家帮你规划每日日程、打卡习惯、记录待办。支持本地数据持久化、番茄钟计时、每日复盘，珊瑚橙卡通 UI 贯穿全局。",
+    "workbench.f1": "日程管理",
+    "workbench.f2": "习惯打卡",
+    "workbench.f3": "番茄钟",
+    "workbench.f4": "本地持久化",
+    "workbench.f5": "每日复盘",
+    "newspaper.title": "猫咪生活报 · 喵星人编辑部",
+    "newspaper.subtitle": "Cat Newspaper · 萌系生活报",
+    "newspaper.desc": "以猫咪编辑部的萌系视角，生成每日生活报。涵盖天气、心情、待办、小贴士等模块，报纸排版风格 + 猫咪插画，每天都是一份新的「喵星人日报」。",
+    "newspaper.f1": "报纸排版",
+    "newspaper.f2": "猫咪插画",
+    "newspaper.f3": "每日生成",
+    "newspaper.f4": "天气模块",
+    "newspaper.f5": "每日小贴士",
+    "checkin.title": "汪汪签到局",
+    "checkin.subtitle": "Checkin Workbench · 习惯签到",
+    "checkin.desc": "汪汪主题的习惯签到 Web 应用。每日打卡、连续签到奖励、月度日历视图、习惯统计图表。用萌萌的汪汪鼓励你坚持好习惯，数据全部存储在本地浏览器。",
+    "checkin.f1": "每日签到",
+    "checkin.f2": "连续签到奖励",
+    "checkin.f3": "月度日历",
+    "checkin.f4": "统计图表",
+    "checkin.f5": "汪汪鼓励",
+    "plugins.tag": "IDEA PLUGINS",
+    "plugins.title": "IDEA 插件",
+    "plugins.desc": "为 JetBrains 开发者生态打造的桌面工具插件。",
+    "pet.title": "IDEA 桌面宠物插件",
+    "pet.subtitle": "Pet Whale · JetBrains 桌面宠物",
+    "pet.desc": "在 IntelliJ IDEA 中养一只桌面宠物鲸鱼！coding 时鲸鱼在状态栏游泳陪伴，定时提醒休息喝水，代码提交时冒泡庆祝。用 Kotlin 编写，基于 IntelliJ Platform SDK 开发。",
+    "pet.f1": "鲸鱼桌面宠物",
+    "pet.f2": "定时休息提醒",
+    "pet.f3": "提交冒泡庆祝",
+    "pet.f4": "动画状态机",
+    "pet.f5": "喝水提醒",
+    "keyboard.title": "IDEA 工具窗口插件",
+    "keyboard.subtitle": "Keyboard Stats · 按键统计",
+    "keyboard.desc": "IntelliJ IDEA 按键统计工具窗口插件。实时统计你在 IDE 中的按键次数、最常用快捷键、编码时长，以可视化图表展示。帮助开发者了解自己的编码习惯。",
+    "keyboard.f1": "按键实时统计",
+    "keyboard.f2": "热门快捷键排行",
+    "keyboard.f3": "可视化图表",
+    "keyboard.f4": "编码时长追踪",
+    "keyboard.f5": "每日成就",
     "blog.tag": "TECH BLOG",
     "blog.title": "技术博客",
     "blog.desc": "记录开发过程中的思考、踩坑与解决方案。",
@@ -1683,17 +2120,19 @@ const i18n = {
     "about.desc": "独立开发者，相信小而美的产品力量。",
     "about.heading": "从想法到上线，一个人就是一支团队",
     "about.p1": "我是 Lucas Li，一名独立软件开发者。白天写 Java 经纪业务系统，夜晚和周末用 HTML5 Canvas 做游戏、用原生 JS 搭应用原型。",
-    "about.p2": "我相信好的产品不需要庞大的团队和复杂的框架——一个 HTML 文件、一份热爱、足够的细节打磨，就能创造出让人会心一笑的东西。所有作品都是纯前端单文件实现，双击即玩，零依赖。",
-    "about.p3": "擅长 Java 后端（恒生 UF3.0/JRESCloud）、HTML5 游戏开发、UI/UX 原型设计、Cloudflare Pages 部署。偏好珊瑚橙视觉风格与卡通萌系 UI。",
+    "about.p2": "我相信好的产品不需要庞大的团队和复杂的框架——一份热爱、足够的细节打磨，就能创造出让人会心一笑的东西。从网页游戏到 Web 应用，再到 IDEA 插件，每个作品都倾注了同样的用心。",
+    "about.p3": "擅长 Java 后端（恒生 UF3.0/JRESCloud）、HTML5 游戏开发、Web 应用原型设计、IntelliJ 插件开发、Cloudflare Pages 部署。偏好珊瑚橙视觉风格与卡通萌系 UI。",
     "about.s1": "网页游戏",
-    "about.s2": "APP 原型",
-    "about.s3": "技术文章",
+    "about.s2": "Web 应用",
+    "about.s3": "IDEA 插件",
     "about.s4": "咖啡因",
     "contact.title": "一起做点有趣的？",
     "contact.desc": "无论是游戏开发、应用原型还是技术合作，随时欢迎找我聊聊。",
     "contact.game1": "幸存者",
     "contact.game2": "飞机大战",
+    "contact.game3": "王国守卫",
     "contact.app": "温暖陪伴",
+    "contact.app2": "时间管理局",
     "common.play": "在线试玩",
     "common.source": "源码",
     "common.video": "视频",
@@ -1701,30 +2140,31 @@ const i18n = {
     "footer.made": "用",
     "footer.and": "和",
     "footer.built": "构建",
-    "footer.note": "珊瑚橙主题 · 纯前端 · 零依赖",
+    "footer.note": "珊瑚橙主题 · 游戏 · 应用 · 插件",
     "video.survivor": "暗夜幸存者 · 游戏预览",
     "video.planewar": "飞机大战 · 游戏预览"
   },
   en: {
     "nav.projects": "Work",
-    "nav.app": "App",
+    "nav.app": "Apps",
+    "nav.plugins": "Plugins",
     "nav.blog": "Blog",
     "nav.about": "About",
     "nav.contact": "Contact",
-    "hero.badge": "Indie Developer · Full Stack · Game Dev",
+    "hero.badge": "Indie Developer · Full Stack · Games / Apps / Plugins",
     "hero.title": "Building fun things<br><span class=\"accent\">with code</span>",
-    "hero.desc": "I'm Lucas Li, an independent software developer. I focus on web games, mobile app prototypes, and developer tools. I believe great products come from an obsession with detail and the pursuit of joy.",
+    "hero.desc": "I'm Lucas Li, an independent software developer. I focus on web games, web apps, and developer tool plugins. I believe great products come from an obsession with detail and the pursuit of joy.",
     "hero.cta1": "View Work",
     "hero.cta2": "Get in Touch",
     "hero.stat1": "Indie Projects",
     "hero.stat2": "Web Games",
     "hero.stat3": "Pure Frontend",
     "hero.float1": "HTML5 Games",
-    "hero.float2": "App Prototypes",
-    "hero.float3": "Zero Deps",
+    "hero.float2": "Web Apps",
+    "hero.float3": "IDEA Plugins",
     "projects.tag": "PORTFOLIO",
     "projects.title": "Selected Work",
-    "projects.desc": "Every project is a pure single-file frontend — double-click to play, zero dependencies, zero build steps.",
+    "projects.desc": "Web games, web apps, and IDEA plugins — a complete portfolio from idea to launch.",
     "survivor.title": "Dark Night Survivor",
     "survivor.subtitle": "Survivor · Vampire Survivors clone",
     "survivor.desc": "A browser game inspired by Vampire Survivors. A blue-clothed big-headed hero fights green zombies, purple bats, white skeletons, orange ogres, and red bosses. 5 auto-attack weapons, upgrade picks, and a local Top 10 leaderboard.",
@@ -1741,9 +2181,17 @@ const i18n = {
     "planewar.f3": "Procedural Audio",
     "planewar.f4": "Top 10 Leaderboard",
     "planewar.f5": "Mobile Support",
-    "app.tag": "APP PROTOTYPE",
-    "app.title": "App Prototype",
-    "app.desc": "From concept to interaction — validating product ideas through rapid prototyping.",
+    "kingdom.title": "Kingdom Defense",
+    "kingdom.subtitle": "Kingdom Defense · Strategy Tower Defense",
+    "kingdom.desc": "A pure frontend strategy tower defense game. Deploy arrow towers, cannon towers, and magic towers along winding paths to repel waves of monsters. Increasing wave difficulty, boss waves, gold economy, tower upgrade paths, and Canvas vector-drawn scenes.",
+    "kingdom.f1": "3 Defense Towers",
+    "kingdom.f2": "Increasing Wave Difficulty",
+    "kingdom.f3": "Boss Waves",
+    "kingdom.f4": "Gold Economy",
+    "kingdom.f5": "Tower Upgrades",
+    "app.tag": "WEB APPS",
+    "app.title": "Web Apps",
+    "app.desc": "From prototype to production — every app runs on Cloudflare Pages.",
     "warm.title": "Warm Companion",
     "warm.subtitle": "Warm Companion · Emotional Chat",
     "warm.desc": "A gentle, healing-style emotional companion chat app prototype. The virtual character \"Axi\" — a gentle, wise senior student — offers daily greetings, emotional support, and encouragement. Three-column layout, typewriter effect, rich text with code highlighting, and mock streaming replies.",
@@ -1752,6 +2200,57 @@ const i18n = {
     "warm.f3": "Rich Text + Code",
     "warm.f4": "Coral Orange Theme",
     "warm.f5": "Mock AI Replies",
+    "poetry.title": "Poetry Cards",
+    "poetry.subtitle": "Poetry Cards · Classical Chinese Poetry",
+    "poetry.desc": "A classical poetry card-drawing web app. Each card features a classic Chinese poem with a Canvas-drawn ink-wash illustration. Card-draw animations, rarity system, and a poetry collection album — blending traditional culture with gamified experience, zero dependencies.",
+    "poetry.f1": "Card-Draw Animation",
+    "poetry.f2": "Canvas Ink-Wash Art",
+    "poetry.f3": "Rarity System",
+    "poetry.f4": "Poetry Collection",
+    "poetry.f5": "Classical Aesthetic",
+    "workbench.title": "Workbench Mobile",
+    "workbench.subtitle": "Workbench Mobile · Personal Time Management",
+    "workbench.desc": "A cute-style personal time management mobile web app. A doggy butler helps you plan daily schedules, track habits, and manage todos. Local data persistence, pomodoro timer, daily review, with coral orange cartoon UI throughout.",
+    "workbench.f1": "Schedule Management",
+    "workbench.f2": "Habit Check-in",
+    "workbench.f3": "Pomodoro Timer",
+    "workbench.f4": "Local Persistence",
+    "workbench.f5": "Daily Review",
+    "newspaper.title": "Cat Newspaper",
+    "newspaper.subtitle": "Cat Newspaper · Cute Daily Life Report",
+    "newspaper.desc": "Generates a daily life report from the cute perspective of a cat editorial team. Covers weather, mood, todos, tips, and more — newspaper layout style with cat illustrations. Every day is a fresh \"Meow Daily\".",
+    "newspaper.f1": "Newspaper Layout",
+    "newspaper.f2": "Cat Illustrations",
+    "newspaper.f3": "Daily Generation",
+    "newspaper.f4": "Weather Module",
+    "newspaper.f5": "Daily Tips",
+    "checkin.title": "Checkin Workbench",
+    "checkin.subtitle": "Checkin Workbench · Habit Tracker",
+    "checkin.desc": "A doggy-themed habit check-in web app. Daily check-ins, streak rewards, monthly calendar view, and habit statistics charts. Cute doggy encouragement keeps you going. All data stored locally in the browser.",
+    "checkin.f1": "Daily Check-in",
+    "checkin.f2": "Streak Rewards",
+    "checkin.f3": "Monthly Calendar",
+    "checkin.f4": "Statistics Charts",
+    "checkin.f5": "Doggy Encouragement",
+    "plugins.tag": "IDEA PLUGINS",
+    "plugins.title": "IDEA Plugins",
+    "plugins.desc": "Desktop tool plugins built for the JetBrains developer ecosystem.",
+    "pet.title": "IDEA Desktop Pet Plugin",
+    "pet.subtitle": "Pet Whale · JetBrains Desktop Pet",
+    "pet.desc": "Keep a desktop pet whale in IntelliJ IDEA! The whale swims in the status bar while you code, reminds you to take breaks and drink water, and blows bubbles to celebrate commits. Written in Kotlin on the IntelliJ Platform SDK.",
+    "pet.f1": "Whale Desktop Pet",
+    "pet.f2": "Break Reminders",
+    "pet.f3": "Commit Celebration",
+    "pet.f4": "Animation State Machine",
+    "pet.f5": "Hydration Reminders",
+    "keyboard.title": "IDEA Tool Window Plugin",
+    "keyboard.subtitle": "Keyboard Stats · Keystroke Tracking",
+    "keyboard.desc": "An IntelliJ IDEA keystroke tracking tool window plugin. Real-time stats of your keystrokes, most-used shortcuts, and coding duration — visualized in charts. Helps developers understand their coding habits.",
+    "keyboard.f1": "Real-time Keystroke Stats",
+    "keyboard.f2": "Top Shortcuts Ranking",
+    "keyboard.f3": "Visualized Charts",
+    "keyboard.f4": "Coding Duration Tracking",
+    "keyboard.f5": "Daily Achievements",
     "blog.tag": "TECH BLOG",
     "blog.title": "Tech Blog",
     "blog.desc": "Thoughts, pitfalls, and solutions from the development process.",
@@ -1773,17 +2272,19 @@ const i18n = {
     "about.desc": "Independent developer. Believer in small, beautiful products.",
     "about.heading": "From Idea to Launch — A Team of One",
     "about.p1": "I'm Lucas Li, an independent software developer. By day I build Java brokerage systems; by night and weekends I make games with HTML5 Canvas and prototype apps with vanilla JS.",
-    "about.p2": "I believe great products don't need huge teams or complex frameworks — a single HTML file, passion, and enough attention to detail can create something that makes people smile. Every project here is a pure single-file frontend: double-click to play, zero dependencies.",
-    "about.p3": "Skilled in Java backend (Hundsun UF3.0/JRESCloud), HTML5 game development, UI/UX prototyping, and Cloudflare Pages deployment. I love coral orange visuals and cute cartoon UI.",
+    "about.p2": "I believe great products don't need huge teams or complex frameworks — passion and enough attention to detail can create something that makes people smile. From web games to web apps to IDEA plugins, every project is crafted with the same dedication.",
+    "about.p3": "Skilled in Java backend (Hundsun UF3.0/JRESCloud), HTML5 game development, web app prototyping, IntelliJ plugin development, and Cloudflare Pages deployment. I love coral orange visuals and cute cartoon UI.",
     "about.s1": "Web Games",
-    "about.s2": "App Prototypes",
-    "about.s3": "Tech Articles",
+    "about.s2": "Web Apps",
+    "about.s3": "IDEA Plugins",
     "about.s4": "Caffeine",
     "contact.title": "Let's build something fun?",
     "contact.desc": "Whether it's game development, app prototyping, or tech collaboration — feel free to reach out anytime.",
     "contact.game1": "Survivor",
     "contact.game2": "Plane War",
+    "contact.game3": "Kingdom Defense",
     "contact.app": "Warm Companion",
+    "contact.app2": "Workbench",
     "common.play": "Play Now",
     "common.source": "Source",
     "common.video": "Video",
@@ -1791,7 +2292,7 @@ const i18n = {
     "footer.made": "Built with",
     "footer.and": "and",
     "footer.built": "",
-    "footer.note": "Coral Orange Theme · Pure Frontend · Zero Dependencies",
+    "footer.note": "Coral Orange Theme · Games · Apps · Plugins",
     "video.survivor": "Dark Night Survivor · Game Preview",
     "video.planewar": "Plane War · Game Preview"
   }
