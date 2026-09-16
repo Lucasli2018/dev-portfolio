@@ -4,8 +4,9 @@
 
 ## ✨ 特性
 
-- 🎮 **2 款网页游戏**：暗夜幸存者 + 飞机大战，纯前端单文件实现
-- 📱 **APP 原型**：温暖陪伴情感聊天 App 界面原型
+- 🎮 **4 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇，纯前端单文件实现
+- 📱 **6 款 Web 应用**：温暖陪伴、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、LinguaVerse 多语种学习平台
+- 🔌 **2 款 IDEA 插件**：桌面宠物鲸鱼、按键统计工具窗口
 - 📝 **技术博客**：6 篇技术文章卡片
 - 🌍 **中英文切换**：完整 i18n 支持，一键切换
 - 🎨 **双主题**：珊瑚橙（温暖）+ 赛博朋克（科技感），一键切换
@@ -46,6 +47,13 @@
 - 📦 源码：https://gitee.com/li-luoqiang/warm-companion
 - 三栏布局 · 打字机效果 · 富文本+代码高亮 · mock AI 回复
 
+### LinguaVerse · 多语种学习平台
+一款支持多语种学习的在线教育平台。
+
+- 🌐 在线体验：https://linguaverse-web.pages.dev/
+- 📦 源码：https://gitee.com/li-luoqiang/linguaverse-web
+- 多语种支持（英日韩法西）· 词汇/语法/听力/口语 · 游戏化学习路径 · 进度追踪 · 社区交流
+
 ## 🚀 快速开始
 
 ### 方式一：直接打开
@@ -64,10 +72,19 @@ python -m http.server 8090
 portfolio/
 ├── index.html          # 主页面（全部代码内联）
 ├── assets/
-│   ├── dev-avatar.jpg       # 开发者头像
-│   ├── survivor-cover.jpg   # 暗夜幸存者封面
-│   ├── planewar-cover.jpg   # 飞机大战封面
-│   └── warmcompanion-cover.jpg  # 温暖陪伴封面
+│   ├── dev-avatar.jpg           # 开发者头像
+│   ├── survivor-cover.jpg       # 暗夜幸存者封面
+│   ├── planewar-cover.jpg       # 飞机大战封面
+│   ├── kingdom-cover.png        # 王国守卫封面
+│   ├── snake-cover.png          # 贪吃蛇封面
+│   ├── warmcompanion-cover.jpg  # 温暖陪伴封面
+│   ├── poetry-cover.png         # 古韵抽卡封面
+│   ├── workbench-cover.png      # 汪汪时间管理局封面
+│   ├── newspaper-cover.png      # 猫咪生活报封面
+│   ├── checkin-cover.png        # 汪汪签到局封面
+│   ├── linguaverse-cover.jpg    # LinguaVerse 多语种学习平台封面
+│   ├── pet-cover.jpg            # IDEA 桌面宠物封面
+│   └── keyboard-cover.png       # IDEA 按键统计封面
 └── README.md
 ```
 
