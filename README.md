@@ -5,7 +5,7 @@
 ## ✨ 特性
 
 - 🎮 **4 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇，纯前端单文件实现
-- 📱 **6 款 Web 应用**：温暖陪伴、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、LinguaVerse 多语种学习平台
+- 📱 **8 款 Web 应用**：温暖陪伴、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱
 - 🔌 **2 款 IDEA 插件**：桌面宠物鲸鱼、按键统计工具窗口
 - 📝 **技术博客**：6 篇技术文章卡片
 - 🌍 **中英文切换**：完整 i18n 支持，一键切换
@@ -54,6 +54,20 @@
 - 📦 源码：https://gitee.com/li-luoqiang/linguaverse-web
 - 多语种支持（英日韩法西）· 词汇/语法/听力/口语 · 游戏化学习路径 · 进度追踪 · 社区交流
 
+### 在线 PS · Online PS
+浏览器里的在线图像编辑器，零依赖单文件实现。
+
+- 🌐 在线体验：https://online-ps.pages.dev
+- 📦 源码：https://gitee.com/li-luoqiang/online-ps
+- 图层系统+16 种混合模式 · 涂抹式图层蒙版 · 魔棒选区+曲线调色 · 可编辑路径 · 内容识别填充 · 多格式导出+工程保存
+
+### 咪咪工具箱 · Online Tools
+零依赖单文件的在线开发者工具箱，全部计算在浏览器本地完成。
+
+- 🌐 在线体验：https://online-tools-x0y.pages.dev/
+- 📦 源码：https://gitee.com/li-luoqiang/online-tools
+- 13 款工具 · JSON/XML/Cron/正则 · Markdown 预览 · 文本 Diff · JWT 解析 · 时间戳转换 · Base64/URL 编解码 · 进制/颜色转换 · UUID 生成
+
 ## 🚀 快速开始
 
 ### 方式一：直接打开
@@ -72,6 +86,7 @@ python -m http.server 8090
 portfolio/
 ├── index.html          # 主页面（全部代码内联）
 ├── assets/
+│   ├── favicon.svg              # 站点图标（珊瑚橙 L 标识）
 │   ├── dev-avatar.jpg           # 开发者头像
 │   ├── survivor-cover.jpg       # 暗夜幸存者封面
 │   ├── planewar-cover.jpg       # 飞机大战封面
@@ -83,6 +98,8 @@ portfolio/
 │   ├── newspaper-cover.png      # 猫咪生活报封面
 │   ├── checkin-cover.png        # 汪汪签到局封面
 │   ├── linguaverse-cover.jpg    # LinguaVerse 多语种学习平台封面
+│   ├── onlineps-cover.png       # 在线 PS 封面
+│   ├── onlinetools-cover.png    # 咪咪工具箱封面
 │   ├── pet-cover.jpg            # IDEA 桌面宠物封面
 │   └── keyboard-cover.png       # IDEA 按键统计封面
 └── README.md
