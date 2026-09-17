@@ -1,0 +1,130 @@
+/* ============================================================
+ * dev-portfolio · 样式模块
+ * 关于我、联系与页脚
+ * ------------------------------------------------------------
+ * 由 index.html 内联代码拆分而来，内容未做改写。
+ * ============================================================ */
+/* ==================== About Section ==================== */
+.about-section { background: var(--navy); color: white; }
+.about-section .section-header h2 { color: white; }
+.about-section .section-header p { color: rgba(255,255,255,0.6); }
+.about-section .section-tag { color: var(--coral-light); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.about-text h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+.about-text p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.skill-tag {
+  padding: 0.4rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.85);
+}
+.about-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.about-stat-card {
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.about-stat-card .icon { font-size: 2rem; margin-bottom: 0.6rem; }
+.about-stat-card .num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--coral-light);
+}
+.about-stat-card .label {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.3rem;
+}
+
+/* ==================== Contact / Footer ==================== */
+.contact-section {
+  padding: 4rem 2rem 2rem;
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-section h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.8rem;
+}
+.contact-section p {
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2rem;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all var(--transition);
+}
+.contact-link:hover { background: var(--coral); color: white; border-color: var(--coral); transform: translateY(-2px); }
+.contact-link svg { width: 20px; height: 20px; }
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+}
+.footer-heart { color: var(--coral); }

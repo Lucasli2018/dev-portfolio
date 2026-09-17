@@ -1,0 +1,65 @@
+/* ============================================================
+ * dev-portfolio · 样式模块
+ * 视频弹窗与预告片画布
+ * ------------------------------------------------------------
+ * 由 index.html 内联代码拆分而来，内容未做改写。
+ * ============================================================ */
+/* ==================== Video Modal ==================== */
+.video-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.video-modal.active { display: flex; animation: fadeIn 0.3s ease; }
+.video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+}
+.video-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(0,0,0,0.3);
+}
+.video-modal-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+.video-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all var(--transition);
+}
+.video-close:hover { background: var(--coral); }
+.video-modal-body {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.video-modal-body iframe { width: 100%; height: 100%; border: none; }
+.video-trailer-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

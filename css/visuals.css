@@ -1,0 +1,89 @@
+/* ============================================================
+ * dev-portfolio · 样式模块
+ * 无图时的渐变视觉、插件卡片与主题补丁
+ * ------------------------------------------------------------
+ * 由 index.html 内联代码拆分而来，内容未做改写。
+ * ============================================================ */
+/* ==================== Project Visual Gradient (no image) ==================== */
+.project-visual-gradient {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.project-visual-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.15), transparent 60%);
+  pointer-events: none;
+}
+.project-visual-gradient .grad-icon {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+  z-index: 1;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Per-project gradients */
+.grad-kingdom { background: linear-gradient(135deg, #1B3A2F, #2D5A3D, #4A7C59); }
+.grad-poetry { background: linear-gradient(135deg, #2D1B3D, #4A2D6D, #F4B942); }
+.grad-workbench { background: linear-gradient(135deg, #FF6B47, #FF8A6B, #FFB088); }
+.grad-newspaper { background: linear-gradient(135deg, #F4B942, #FFD54F, #FFF3C4); }
+.grad-checkin { background: linear-gradient(135deg, #2D5A8C, #4A7CB5, #6BA0D8); }
+.grad-pet { background: linear-gradient(135deg, #1A237E, #3949AB, #5C6BC0); }
+.grad-keyboard { background: linear-gradient(135deg, #1a1a2e, #2a2a4e, #4A3A6E); }
+
+/* ==================== App Section Multi-Card ==================== */
+.app-section .project-card { background: var(--white); }
+
+/* ==================== Plugins Section ==================== */
+.plugins-section { background: var(--white); }
+.plugins-section .project-card { background: var(--cream); }
+
+:root[data-theme="cyberpunk"] .plugins-section { background: var(--cream); }
+:root[data-theme="cyberpunk"] .plugins-section .project-card {
+  background: var(--cream-dark);
+  border: 1px solid rgba(164, 230, 57, 0.08);
+}
+:root[data-theme="cyberpunk"] .plugins-section .project-card:hover {
+  border-color: rgba(164, 230, 57, 0.2);
+}
+
+/* Plugin badge icon */
+.plugin-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+  box-shadow: var(--shadow-coral);
+}
+:root[data-theme="cyberpunk"] .plugin-icon {
+  background: linear-gradient(135deg, #A4E639, #8BC920);
+  box-shadow: 0 0 10px rgba(164, 230, 57, 0.3);
+}
+
+/* Cyberpunk theme for gradient visuals */
+:root[data-theme="cyberpunk"] .project-visual-gradient::after {
+  background: radial-gradient(ellipse at 30% 20%, rgba(164, 230, 57, 0.1), transparent 60%);
+}
+
+/* App section card override for cyberpunk */
+:root[data-theme="cyberpunk"] .app-section .project-card {
+  background: var(--cream-dark);
+  border: 1px solid rgba(164, 230, 57, 0.08);
+}
+:root[data-theme="cyberpunk"] .app-section .project-card:hover {
+  border-color: rgba(164, 230, 57, 0.2);
+}

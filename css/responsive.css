@@ -1,0 +1,58 @@
+/* ============================================================
+ * dev-portfolio · 样式模块
+ * 响应式适配
+ * ------------------------------------------------------------
+ * 由 index.html 内联代码拆分而来，内容未做改写。
+ * ============================================================ */
+/* ==================== Responsive ==================== */
+@media (max-width: 968px) {
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-visual { order: -1; }
+  .hero-text { max-width: 100%; }
+  .hero-actions, .hero-stats { justify-content: center; }
+  .project-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
+  .project-card:nth-child(even) .project-visual { order: 0; }
+  .app-card { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .nav-mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .nav-mobile-toggle span {
+    width: 24px; height: 3px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: all var(--transition);
+  }
+  .nav-links.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    background: var(--cream);
+    padding: 1rem;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-md);
+  }
+  .hero-avatar-wrap { width: 260px; height: 260px; }
+  .float-card { font-size: 0.75rem; padding: 0.4rem 0.7rem; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 3rem 1rem; }
+  .hero { padding: 5rem 1rem 2rem; }
+  .hero-stats { gap: 1.5rem; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .about-visual { grid-template-columns: 1fr 1fr; }
+  .hero-avatar-wrap { width: 200px; height: 200px; }
+  .float-card { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; }
+}
