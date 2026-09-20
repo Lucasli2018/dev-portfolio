@@ -5,7 +5,7 @@
 ## ✨ 特性
 
 - 🎮 **4 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇，纯前端实现
-- 📱 **8 款 Web 应用**：温暖陪伴、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱
+- 📱 **13 款 Web 应用**：温暖陪伴、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队
 - 🔌 **2 款 IDEA 插件**：桌面宠物鲸鱼、按键统计工具窗口
 - 📝 **技术博客**：6 篇技术文章卡片
 - 🌍 **中英文切换**：完整 i18n 支持，一键切换
@@ -55,6 +55,11 @@ dev-portfolio/
 │   ├── linguaverse-cover.jpg        # LinguaVerse 多语种学习平台封面
 │   ├── onlineps-cover.png           # 在线 PS 封面
 │   ├── onlinetools-cover.png        # 咪咪工具箱封面
+│   ├── music-cover.png             # 珊瑚音乐封面
+│   ├── video-cover.png             # 咪咪剪辑封面
+│   ├── dating-inspiration-cover.jpg # 约会灵感站封面
+│   ├── heartverse-cover.jpg        # 心动星球封面
+│   ├── shop-booking-cover.jpg      # 小商家预约排队封面
 │   ├── pet-cover.jpg                # IDEA 桌面宠物封面
 │   └── keyboard-cover.png           # IDEA 按键统计封面
 ├── LICENSE
@@ -92,53 +97,46 @@ python -m http.server 8090
 
 ## 🎮 作品列表
 
-### 暗夜幸存者 · Survivor Game
+共 4 款网页游戏、13 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
 
-仿《吸血鬼幸存者》的浏览器小游戏。
+### 网页游戏（4）
 
-- 🌐 在线试玩：https://survivor-game-9e3.pages.dev/
-- 📦 源码：https://gitee.com/li-luoqiang/survivor-game
-- 5 种武器 · 5 种敌人 · 升级三选一 · 本地排行榜
+- **暗夜幸存者 · Survivor Game** — 仿《吸血鬼幸存者》浏览器小游戏。🌐 https://survivor-game-9e3.pages.dev/ · 📦 https://gitee.com/li-luoqiang/survivor-game · 5 种武器 · 5 种敌人 · 升级三选一 · 本地排行榜
+- **飞机大战 · Plane War** — 经典飞机射击游戏。🌐 https://plane-war-c5b.pages.dev/ · 📦 https://gitee.com/li-luoqiang/plane-war · 6 种武器道具 · BOSS 弹幕 · 程序化音效 · 移动端适配
+- **王国守卫 · Kingdom Defense** — 纯前端策略塔防，Canvas 矢量绘制全部场景。📦 https://gitee.com/li-luoqiang/kingdom-defense · 3 种防御塔 · 波次递增 · Boss 波 · 金币经济 · 塔升级
+- **贪吃蛇 · Snake** — 经典贪吃蛇的 Roguelite 进化版。📦 https://gitee.com/li-luoqiang/snake-game · 升级卡 · 3 生命 · 连击倍率 · Boss 蛇 · 排行榜
 
-### 飞机大战 · Plane War
+### Web 应用（13）
 
-经典飞机射击游戏。
+| 应用 | 简介 | 在线 | 源码 |
+|------|------|------|------|
+| 温暖陪伴 | 情感陪伴聊天 App 原型（打字机 / 富文本 / mock AI） | [🌐](https://warm-companion.pages.dev/) | [📦](https://gitee.com/li-luoqiang/warm-companion) |
+| 古韵抽卡 | 古诗词抽卡 + Canvas 水墨配图 + 收藏册 | — | [📦](https://gitee.com/li-luoqiang) |
+| 汪汪时间管理局 | 萌系个人时间管理（日程 / 习惯 / 番茄钟） | — | [📦](https://gitee.com/li-luoqiang/workbench-mobile) |
+| 猫咪生活报 | 喵星人编辑部每日生活报 | — | [📦](https://gitee.com/li-luoqiang) |
+| 汪汪签到局 | 汪汪主题习惯签到（日历 / 统计） | — | [📦](https://gitee.com/li-luoqiang/checkin-workbench) |
+| LinguaVerse | 多语种学习平台（英日韩法西） | [🌐](https://linguaverse-web.pages.dev/) | [📦](https://gitee.com/li-luoqiang/linguaverse-web) |
+| 在线 PS | 浏览器图像编辑器（图层 / 蒙版 / 选区） | [🌐](https://online-ps.pages.dev) | [📦](https://gitee.com/li-luoqiang/online-ps) |
+| 咪咪工具箱 | 13 款开发者工具（JSON / 正则 / JWT…） | [🌐](https://online-tools-x0y.pages.dev/) | [📦](https://gitee.com/li-luoqiang/online-tools) |
+| 珊瑚音乐 | 零依赖在线播放器（频谱 / LRC / PWA） | — | [📦](https://gitee.com/li-luoqiang/online-music) |
+| 咪咪剪辑 | 浏览器视频剪辑（多轨 / WebCodecs 导出） | — | [📦](https://gitee.com/li-luoqiang/online-video) |
+| 心动星球 | 心动社交星球（粉紫渐变） | — | [📦](https://gitee.com/li-luoqiang/heartverse-web) |
+| 约会灵感站 | 约会创意灵感（场景 / 预算 / 天气筛选） | — | [📦](https://gitee.com/li-luoqiang/dating-inspiration) |
+| 小商家预约排队 | 美甲 / 理发 / 餐饮预约排队 MVP | — | [📦](https://gitee.com/li-luoqiang/shop-booking) |
 
-- 🌐 在线试玩：https://plane-war-c5b.pages.dev/
-- 📦 源码：https://gitee.com/li-luoqiang/plane-war
-- 6 种武器道具 · BOSS 弹幕 · 程序化音效 · 移动端适配
+### IDEA 插件（2）
 
-### 温暖陪伴 · Warm Companion
+- **桌面宠物鲸鱼 · Pet Whale** — IntelliJ 状态栏鲸鱼陪伴 + 休息 / 喝水提醒 + 提交庆祝（Kotlin / IntelliJ Platform SDK）。📦 https://gitee.com/li-luoqiang/idea-pet-whale
+- **按键统计 · Keyboard Stats** — 实时按键 / 快捷键统计 + 可视化图表。📦 https://gitee.com/li-luoqiang/idea-keyboard-stats
 
-温柔治愈风格的情感陪伴聊天 App 原型。
+### 技术博客（6）
 
-- 🌐 在线体验：https://warm-companion.pages.dev/
-- 📦 源码：https://gitee.com/li-luoqiang/warm-companion
-- 三栏布局 · 打字机效果 · 富文本+代码高亮 · mock AI 回复
-
-### LinguaVerse · 多语种学习平台
-
-一款支持多语种学习的在线教育平台。
-
-- 🌐 在线体验：https://linguaverse-web.pages.dev/
-- 📦 源码：https://gitee.com/li-luoqiang/linguaverse-web
-- 多语种支持（英日韩法西）· 词汇/语法/听力/口语 · 游戏化学习路径 · 进度追踪 · 社区交流
-
-### 在线 PS · Online PS
-
-浏览器里的在线图像编辑器，零依赖实现。
-
-- 🌐 在线体验：https://online-ps.pages.dev
-- 📦 源码：https://gitee.com/li-luoqiang/online-ps
-- 图层系统+16 种混合模式 · 涂抹式图层蒙版 · 魔棒选区+曲线调色 · 可编辑路径 · 内容识别填充 · 多格式导出+工程保存
-
-### 咪咪工具箱 · Online Tools
-
-零依赖单文件的在线开发者工具箱，全部计算在浏览器本地完成。
-
-- 🌐 在线体验：https://online-tools-x0y.pages.dev/
-- 📦 源码：https://gitee.com/li-luoqiang/online-tools
-- 13 款工具 · JSON/XML/Cron/正则 · Markdown 预览 · 文本 Diff · JWT 解析 · 时间戳转换 · Base64/URL 编解码 · 进制/颜色转换 · UUID 生成
+- 纯 Canvas 如何实现满屏敌人不掉帧
+- Web Audio API 程序化合成游戏音效
+- 从 mock 到真实 API：聊天原型的渐进式设计
+- 单文件部署到 Cloudflare Pages 的最佳实践
+- localStorage 游戏排行榜的正确实现方式
+- Canvas 矢量绘制卡通角色的技巧
 
 ## 🛠️ 技术栈
 
