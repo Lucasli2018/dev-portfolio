@@ -90,7 +90,7 @@
     </div>
     <div class="hero-visual reveal-right">
       <div class="hero-avatar-wrap">
-        <img src="assets/dev-avatar.jpg" alt="Lucas Li" loading="eager">
+        <img src="assets/dev-avatar.webp" alt="Lucas Li" loading="eager">
         <div class="float-card float-card-1">
           <span class="icon">🎮</span>
           <span data-i18n="hero.float1">HTML5 游戏</span>
@@ -120,9 +120,10 @@
     <!-- Game 1: Survivor -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/survivor-cover.jpg" alt="暗夜幸存者" loading="lazy">
+        <img src="assets/survivor-cover.webp" alt="暗夜幸存者" loading="lazy">
         <div class="play-overlay" onclick="openVideoModal('survivor')">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <div class="play-icon">▶</div>
+          <span data-i18n="common.video">视频</span>
         </div>
         <div class="project-visual-overlay">
           <span class="tech-tag">HTML5 Canvas</span>
@@ -145,18 +146,18 @@
           <li class="feature-chip">🚀 <span data-i18n="survivor.f5">离屏精灵预渲染</span></li>
         </ul>
         <div class="project-links">
-          <a href="https://survivor-game-9e3.pages.dev/" target="_blank" class="link-btn play">
+          <button class="link-btn play" onclick="openVideoModal('survivor')">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
+          <a href="https://survivor-game-9e3.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
             <span data-i18n="common.play">在线试玩</span>
           </a>
           <a href="https://gitee.com/li-luoqiang/survivor-game" target="_blank" class="link-btn source">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
             <span data-i18n="common.source">源码</span>
           </a>
-          <button class="link-btn source" onclick="openVideoModal('survivor')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7zM14 5H3a2 2 0 00-2 2v10a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2z"/></svg>
-            <span data-i18n="common.video">视频</span>
-          </button>
         </div>
       </div>
     </div>
@@ -164,9 +165,10 @@
     <!-- Game 2: Plane War -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/planewar-cover.jpg" alt="飞机大战" loading="lazy">
+        <img src="assets/planewar-cover.webp" alt="飞机大战" loading="lazy">
         <div class="play-overlay" onclick="openVideoModal('planewar')">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <div class="play-icon">▶</div>
+          <span data-i18n="common.video">视频</span>
         </div>
         <div class="project-visual-overlay">
           <span class="tech-tag">HTML5 Canvas</span>
@@ -189,18 +191,18 @@
           <li class="feature-chip">📱 <span data-i18n="planewar.f5">移动端适配</span></li>
         </ul>
         <div class="project-links">
-          <a href="https://plane-war-c5b.pages.dev/" target="_blank" class="link-btn play">
+          <button class="link-btn play" onclick="openVideoModal('planewar')">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
+          <a href="https://plane-war-c5b.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
             <span data-i18n="common.play">在线试玩</span>
           </a>
           <a href="https://gitee.com/li-luoqiang/plane-war" target="_blank" class="link-btn source">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
             <span data-i18n="common.source">源码</span>
           </a>
-          <button class="link-btn source" onclick="openVideoModal('planewar')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7zM14 5H3a2 2 0 00-2 2v10a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2z"/></svg>
-            <span data-i18n="common.video">视频</span>
-          </button>
         </div>
       </div>
     </div>
@@ -208,7 +210,7 @@
     <!-- Game 3: Kingdom Defense -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/kingdom-cover.png" alt="王国守卫" loading="lazy">
+        <img src="assets/kingdom-cover.webp" alt="王国守卫" loading="lazy">
         <div class="play-overlay" onclick="openVideoModal('kingdom')">
           <div class="play-icon">▶</div>
           <span data-i18n="common.video">视频</span>
@@ -253,7 +255,7 @@
     <!-- Game 4: Snake -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/snake-cover.png" alt="贪吃蛇" loading="lazy">
+        <img src="assets/snake-cover.webp" alt="贪吃蛇" loading="lazy">
         <div class="play-overlay" onclick="openVideoModal('snake')">
           <div class="play-icon">▶</div>
           <span data-i18n="common.video">视频</span>
@@ -309,7 +311,7 @@
     <!-- App 1: Warm Companion -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/warmcompanion-cover.jpg" alt="温暖陪伴" loading="lazy">
+        <img src="assets/warmcompanion-cover.webp" alt="温暖陪伴" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">Chat UI</span>
@@ -346,7 +348,7 @@
     <!-- App 2: LinguaVerse -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/linguaverse-cover.jpg" alt="LinguaVerse 多语种学习平台" loading="lazy">
+        <img src="assets/linguaverse-cover.webp" alt="LinguaVerse 多语种学习平台" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">i18n</span>
@@ -382,7 +384,7 @@
     <!-- App 3: Online PS -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/onlineps-cover.png" alt="在线 PS" loading="lazy">
+        <img src="assets/onlineps-cover.webp" alt="在线 PS" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">Canvas</span>
@@ -419,7 +421,7 @@
     <!-- App 4: Online Tools -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/onlinetools-cover.png" alt="在线工具箱" loading="lazy">
+        <img src="assets/onlinetools-cover.webp" alt="在线工具箱" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">13款工具</span>
@@ -456,7 +458,7 @@
     <!-- App 5: Coral Music -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/music-cover.png" alt="珊瑚音乐" loading="lazy">
+        <img src="assets/music-cover.webp" alt="珊瑚音乐" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">Web Audio</span>
@@ -493,7 +495,7 @@
     <!-- App 6: Mimi Edit -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/video-cover.png" alt="咪咪剪辑" loading="lazy">
+        <img src="assets/video-cover.webp" alt="咪咪剪辑" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">Canvas</span>
@@ -530,7 +532,7 @@
     <!-- App 7: Heartverse -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/heartverse-cover.jpg" alt="心动星球" loading="lazy">
+        <img src="assets/heartverse-cover.webp" alt="心动星球" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">Social</span>
@@ -567,7 +569,7 @@
     <!-- App 8: Dating Inspiration -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/dating-inspiration-cover.jpg" alt="约会灵感站" loading="lazy">
+        <img src="assets/dating-inspiration-cover.webp" alt="约会灵感站" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">Ideas</span>
@@ -604,7 +606,7 @@
     <!-- App 9: Shop Booking -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/shop-booking-cover.jpg" alt="小商家预约排队系统 MVP" loading="lazy">
+        <img src="assets/shop-booking-cover.webp" alt="小商家预约排队系统 MVP" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">localStorage</span>
@@ -641,7 +643,7 @@
     <!-- App 10: Idle Exchange -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/idle-exchange-cover.jpg" alt="闲置交换 · 社区二手" loading="lazy">
+        <img src="assets/idle-exchange-cover.webp" alt="闲置交换 · 社区二手" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">localStorage</span>
@@ -678,7 +680,7 @@
     <!-- App 11: Poetry Cards -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/poetry-cover.png" alt="古韵抽卡" loading="lazy">
+        <img src="assets/poetry-cover.webp" alt="古韵抽卡" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">Canvas</span>
@@ -715,7 +717,7 @@
     <!-- App 12: Workbench Mobile -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/workbench-cover.png" alt="汪汪时间管理局" loading="lazy">
+        <img src="assets/workbench-cover.webp" alt="汪汪时间管理局" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">PWA</span>
@@ -752,7 +754,7 @@
     <!-- App 13: Cat Newspaper -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/newspaper-cover.png" alt="猫咪生活报" loading="lazy">
+        <img src="assets/newspaper-cover.webp" alt="猫咪生活报" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">Responsive</span>
@@ -789,7 +791,7 @@
     <!-- App 14: Checkin Workbench -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/checkin-cover.png" alt="汪汪签到局" loading="lazy">
+        <img src="assets/checkin-cover.webp" alt="汪汪签到局" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">localStorage</span>
@@ -826,7 +828,7 @@
     <!-- App 15: Event Signin -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/event-signin-cover.jpg" alt="活动报名签到" loading="lazy">
+        <img src="assets/event-signin-cover.webp" alt="活动报名签到" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">localStorage</span>
@@ -863,7 +865,7 @@
     <!-- App 16: Warm Host -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/warm-host-cover.jpg" alt="节假日宠物寄养" loading="lazy">
+        <img src="assets/warm-host-cover.webp" alt="节假日宠物寄养" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Vanilla JS</span>
           <span class="tech-tag">localStorage</span>
@@ -912,7 +914,7 @@
     <!-- Plugin 1: Pet Whale -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/pet-cover.jpg" alt="IDEA 桌面宠物插件" loading="lazy">
+        <img src="assets/pet-cover.webp" alt="IDEA 桌面宠物插件" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Kotlin</span>
           <span class="tech-tag">IntelliJ Platform</span>
@@ -945,7 +947,7 @@
     <!-- Plugin 2: Keyboard Stats -->
     <div class="project-card reveal">
       <div class="project-visual">
-        <img src="assets/keyboard-cover.png" alt="IDEA 工具窗口插件" loading="lazy">
+        <img src="assets/keyboard-cover.webp" alt="IDEA 工具窗口插件" loading="lazy">
         <div class="project-visual-overlay">
           <span class="tech-tag">Kotlin</span>
           <span class="tech-tag">IntelliJ Platform</span>
