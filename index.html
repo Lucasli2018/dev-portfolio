@@ -75,11 +75,11 @@
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="num">20+</div>
+          <div class="num">24+</div>
           <div class="label" data-i18n="hero.stat1">独立项目</div>
         </div>
         <div class="stat-item">
-          <div class="num">4</div>
+          <div class="num">5</div>
           <div class="label" data-i18n="hero.stat2">网页游戏</div>
         </div>
         <div class="stat-item">
@@ -290,6 +290,51 @@
             <span data-i18n="common.play">在线试玩</span>
           </a>
           <a href="https://gitee.com/li-luoqiang/snake-game" target="_blank" class="link-btn source">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
+            <span data-i18n="common.source">源码</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game 5: Tetris -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <img src="assets/tetris-cover.webp" alt="俄罗斯方块" loading="lazy">
+        <div class="play-overlay" onclick="openVideoModal('tetris')">
+          <div class="play-icon">▶</div>
+          <span data-i18n="common.video">视频</span>
+        </div>
+        <div class="project-visual-overlay">
+          <span class="tech-tag">HTML5 Canvas</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">经典游戏</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">05 / GAME</div>
+        <h3 data-i18n="tetris.title">俄罗斯方块</h3>
+        <div class="project-subtitle" data-i18n="tetris.subtitle">Tetris · 经典方块消除</div>
+        <p data-i18n="tetris.desc">
+          经典俄罗斯方块浏览器版。7种标准方块、旋转与硬降落、幽灵投影预览、消行特效粒子、等级递增加速。分数与最高分本地存储，纯 Canvas 渲染，桌面与移动端均可操作。
+        </p>
+        <ul class="feature-list">
+          <li class="feature-chip">🧩 <span data-i18n="tetris.f1">7种标准方块</span></li>
+          <li class="feature-chip">👻 <span data-i18n="tetris.f2">幽灵投影预览</span></li>
+          <li class="feature-chip">✨ <span data-i18n="tetris.f3">消行粒子特效</span></li>
+          <li class="feature-chip">📈 <span data-i18n="tetris.f4">等级递增加速</span></li>
+          <li class="feature-chip">🏆 <span data-i18n="tetris.f5">最高分存储</span></li>
+        </ul>
+        <div class="project-links">
+          <button class="link-btn play" onclick="openVideoModal('tetris')">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
+          <a href="https://tetris-10i.pages.dev/" target="_blank" class="link-btn play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <span data-i18n="common.play">在线试玩</span>
+          </a>
+          <a href="https://gitee.com/li-luoqiang/tetris" target="_blank" class="link-btn source">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.19 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.03.06-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5A10 10 0 0012 2z"/></svg>
             <span data-i18n="common.source">源码</span>
           </a>
@@ -1230,7 +1275,7 @@
       <div class="about-visual reveal-right">
         <div class="about-stat-card">
           <div class="icon">🎮</div>
-          <div class="num">4</div>
+          <div class="num">5</div>
           <div class="label" data-i18n="about.s1">网页游戏</div>
         </div>
         <div class="about-stat-card">
@@ -1337,6 +1382,7 @@
 <script src="js/trailers/plane-war.js"></script>
 <script src="js/trailers/kingdom.js"></script>
 <script src="js/trailers/snake.js"></script>
+<script src="js/trailers/tetris.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -59,6 +59,14 @@ const i18n = {
     "snake.f3": "连击倍率",
     "snake.f4": "Boss 蛇",
     "snake.f5": "排行榜 TOP 10",
+    "tetris.title": "俄罗斯方块",
+    "tetris.subtitle": "Tetris · 经典方块消除",
+    "tetris.desc": "经典俄罗斯方块浏览器版。7种标准方块、旋转与硬降落、幽灵投影预览、消行特效粒子、等级递增加速。分数与最高分本地存储，纯 Canvas 渲染，桌面与移动端均可操作。",
+    "tetris.f1": "7种标准方块",
+    "tetris.f2": "幽灵投影预览",
+    "tetris.f3": "消行粒子特效",
+    "tetris.f4": "等级递增加速",
+    "tetris.f5": "最高分存储",
     "app.tag": "WEB APPS",
     "app.title": "Web 应用",
     "app.desc": "从原型到上线，每一个应用都在 Cloudflare Pages 上运行。",
@@ -283,7 +291,8 @@ const i18n = {
     "video.survivor": "暗夜幸存者 · 游戏预览",
     "video.planewar": "飞机大战 · 游戏预览",
     "video.kingdom": "王国守卫 · 塔防 · 游戏预览",
-    "video.snake": "贪吃蛇 · 游戏预览"
+    "video.snake": "贪吃蛇 · 游戏预览",
+    "video.tetris": "俄罗斯方块 · 游戏预览"
   },
   en: {
     "nav.projects": "Work",
@@ -338,6 +347,14 @@ const i18n = {
     "snake.f3": "Combo Multiplier",
     "snake.f4": "Boss Snake",
     "snake.f5": "Leaderboard TOP 10",
+    "tetris.title": "Tetris",
+    "tetris.subtitle": "Tetris · Classic Block Puzzle",
+    "tetris.desc": "Classic Tetris in the browser. 7 standard tetrominoes, rotation and hard drop, ghost piece projection, line-clear particle effects, and progressive level speed-up. Score and high score stored locally. Pure Canvas rendering, playable on desktop and mobile.",
+    "tetris.f1": "7 Standard Tetrominoes",
+    "tetris.f2": "Ghost Piece Projection",
+    "tetris.f3": "Line-Clear Particles",
+    "tetris.f4": "Progressive Speed-Up",
+    "tetris.f5": "High Score Storage",
     "app.tag": "WEB APPS",
     "app.title": "Web Apps",
     "app.desc": "From prototype to production — every app runs on Cloudflare Pages.",
@@ -562,7 +579,8 @@ const i18n = {
     "video.survivor": "Dark Night Survivor · Game Preview",
     "video.planewar": "Plane War · Game Preview",
     "video.kingdom": "Kingdom Defense · Game Preview",
-    "video.snake": "Snake · Game Preview"
+    "video.snake": "Snake · Game Preview",
+    "video.tetris": "Tetris · Game Preview"
   }
 };
 

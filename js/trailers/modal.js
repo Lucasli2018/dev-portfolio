@@ -30,6 +30,8 @@ function openVideoModal(game) {
       startKingdomDefenseTrailer();
     } else if (game === 'snake') {
       startSnakeTrailer();
+    } else if (game === 'tetris') {
+      startTetrisTrailer();
     }
   }, 100);
 }
