@@ -4,8 +4,8 @@
 
 ## ✨ 特性
 
-- 🎮 **4 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇，纯前端实现
-- 📱 **14 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局
+- 🎮 **5 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇、俄罗斯方块，纯前端实现
+- 📱 **19 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、节假日宠物寄养、活动报名签到、团队排班、家修管家、错题本
 - 🔌 **2 款 IDEA 插件**：桌面宠物鲸鱼、按键统计工具窗口
 - 📝 **技术博客**：6 篇技术文章卡片
 - 🌍 **中英文切换**：完整 i18n 支持，一键切换
@@ -38,31 +38,38 @@ dev-portfolio/
 │   │   ├── survivor.js     # 暗夜幸存者预告片
 │   │   ├── plane-war.js    # 飞机大战预告片
 │   │   ├── kingdom.js      # 王国守卫预告片
-│   │   └── snake.js        # 贪吃蛇预告片
+│   │   ├── snake.js        # 贪吃蛇预告片
+│   │   └── tetris.js       # 俄罗斯方块预告片
 │   └── main.js             # 入口初始化
 ├── assets/
 │   ├── favicon.svg                  # 站点图标（珊瑚橙 L 标识）
-│   ├── dev-avatar.jpg               # 开发者头像
-│   ├── survivor-cover.jpg           # 暗夜幸存者封面
-│   ├── planewar-cover.jpg           # 飞机大战封面
-│   ├── kingdom-cover.png            # 王国守卫封面
-│   ├── snake-cover.png              # 贪吃蛇封面
-│   ├── warmcompanion-cover.jpg      # 温暖陪伴封面
-│   ├── poetry-cover.png             # 古韵抽卡封面
-│   ├── workbench-cover.png          # 汪汪时间管理局封面
-│   ├── newspaper-cover.png          # 猫咪生活报封面
-│   ├── checkin-cover.png            # 汪汪签到局封面
-│   ├── linguaverse-cover.jpg        # LinguaVerse 多语种学习平台封面
-│   ├── onlineps-cover.png           # 在线 PS 封面
-│   ├── onlinetools-cover.png        # 咪咪工具箱封面
-│   ├── music-cover.png             # 珊瑚音乐封面
-│   ├── video-cover.png             # 咪咪剪辑封面
-│   ├── dating-inspiration-cover.jpg # 约会灵感站封面
-│   ├── heartverse-cover.jpg        # 心动星球封面
-│   ├── shop-booking-cover.jpg      # 小商家预约排队封面
-│   ├── idle-exchange-cover.jpg     # 闲置交换封面
-│   ├── pet-cover.jpg                # IDEA 桌面宠物封面
-│   └── keyboard-cover.png           # IDEA 按键统计封面
+│   ├── dev-avatar.webp              # 开发者头像
+│   ├── survivor-cover.webp          # 暗夜幸存者封面
+│   ├── planewar-cover.webp          # 飞机大战封面
+│   ├── kingdom-cover.webp           # 王国守卫封面
+│   ├── snake-cover.webp             # 贪吃蛇封面
+│   ├── tetris-cover.webp            # 俄罗斯方块封面
+│   ├── warmcompanion-cover.webp     # 温暖陪伴封面
+│   ├── poetry-cover.webp            # 古韵抽卡封面
+│   ├── workbench-cover.webp         # 汪汪时间管理局封面
+│   ├── newspaper-cover.webp        # 猫咪生活报封面
+│   ├── checkin-cover.webp           # 汪汪签到局封面
+│   ├── linguaverse-cover.webp       # LinguaVerse 多语种学习平台封面
+│   ├── onlineps-cover.webp          # 在线 PS 封面
+│   ├── onlinetools-cover.webp       # 咪咪工具箱封面
+│   ├── music-cover.webp            # 珊瑚音乐封面
+│   ├── video-cover.webp             # 咪咪剪辑封面
+│   ├── dating-inspiration-cover.webp # 约会灵感站封面
+│   ├── heartverse-cover.webp       # 心动星球封面
+│   ├── shop-booking-cover.webp     # 小商家预约排队封面
+│   ├── idle-exchange-cover.webp    # 闲置交换封面
+│   ├── warm-host-cover.webp        # 节假日宠物寄养封面
+│   ├── event-signin-cover.webp     # 活动报名签到封面
+│   ├── team-schedule-cover.webp    # 团队排班封面
+│   ├── home-repair-cover.webp      # 家修管家封面
+│   ├── wrong-book-cover.webp       # 错题本封面
+│   ├── pet-cover.webp               # IDEA 桌面宠物封面
+│   └── keyboard-cover.webp         # IDEA 按键统计封面
 ├── LICENSE
 └── README.md
 ```
@@ -98,16 +105,17 @@ python -m http.server 8090
 
 ## 🎮 作品列表
 
-共 4 款网页游戏、14 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
+共 5 款网页游戏、19 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
 
-### 网页游戏（4）
+### 网页游戏（5）
 
 - **暗夜幸存者 · Survivor Game** — 仿《吸血鬼幸存者》浏览器小游戏。🌐 https://survivor-game-9e3.pages.dev/ · 📦 https://gitee.com/li-luoqiang/survivor-game · 5 种武器 · 5 种敌人 · 升级三选一 · 本地排行榜
 - **飞机大战 · Plane War** — 经典飞机射击游戏。🌐 https://plane-war-c5b.pages.dev/ · 📦 https://gitee.com/li-luoqiang/plane-war · 6 种武器道具 · BOSS 弹幕 · 程序化音效 · 移动端适配
 - **王国守卫 · Kingdom Defense** — 纯前端策略塔防，Canvas 矢量绘制全部场景。📦 https://gitee.com/li-luoqiang/kingdom-defense · 3 种防御塔 · 波次递增 · Boss 波 · 金币经济 · 塔升级
 - **贪吃蛇 · Snake** — 经典贪吃蛇的 Roguelite 进化版。📦 https://gitee.com/li-luoqiang/snake-game · 升级卡 · 3 生命 · 连击倍率 · Boss 蛇 · 排行榜
+- **俄罗斯方块 · Tetris** — 经典方块消除游戏。🌐 https://tetris-10i.pages.dev/ · 📦 https://gitee.com/li-luoqiang/tetris · 7 种方块 · 幽灵投影 · 消行特效 · 等级加速
 
-### Web 应用（14）
+### Web 应用（19）
 
 | 应用 | 简介 | 在线 | 源码 |
 |------|------|------|------|
@@ -125,6 +133,11 @@ python -m http.server 8090
 | 汪汪时间管理局 | 萌系个人时间管理（日程 / 习惯 / 番茄钟） | — | [📦](https://gitee.com/li-luoqiang/workbench-mobile) |
 | 猫咪生活报 | 喵星人编辑部每日生活报 | — | [📦](https://gitee.com/li-luoqiang) |
 | 汪汪签到局 | 汪汪主题习惯签到（日历 / 统计） | — | [📦](https://gitee.com/li-luoqiang/checkin-workbench) |
+| 节假日宠物寄养 | 寄养家庭发布 / 在线预约 / 宠物档案管理 | [🌐](https://warm-host.pages.dev/) | [📦](https://gitee.com/li-luoqiang/warm-host) |
+| 活动报名签到 | 活动创建 / 扫码签到 / 到场率统计 | [🌐](https://event-signin.pages.dev/) | [📦](https://gitee.com/li-luoqiang/event-signin) |
+| 团队排班 | 团队排班管理 / 调班换班 / CSV·ICS 导出 | [🌐](https://team-schedule-bna.pages.dev/) | [📦](https://gitee.com/li-luoqiang/team-schedule) |
+| 家修管家 | 家庭维修预约 / 师傅评分 / 订单管理 | [🌐](https://home-repair-ewe.pages.dev/) | [📦](https://gitee.com/li-luoqiang/home-repair) |
+| 错题本 | 拍照记错题 / 间隔复习 / 科目分类 | [🌐](https://wrong-book-8ne.pages.dev/) | [📦](https://gitee.com/li-luoqiang/wrong-book) |
 
 ### IDEA 插件（2）
 
@@ -144,7 +157,7 @@ python -m http.server 8090
 
 - **HTML5**：语义化结构，`index.html` 只负责骨架
 - **CSS3**：CSS 变量 / Grid / Flexbox / 动画，按层拆分为 8 个样式模块
-- **JavaScript**：原生 JS，零框架依赖，按功能拆分为 9 个脚本模块
+- **JavaScript**：原生 JS，零框架依赖，按功能拆分为 10 个脚本模块
 - **Canvas 2D**：游戏预告片动画 + Hero 背景粒子
 - **i18n**：自实现的双语切换系统（`js/i18n.js`）
 - **主题系统**：CSS 变量 + `data-theme` 属性（`css/tokens.css`）
