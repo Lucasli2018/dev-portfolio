@@ -5,7 +5,7 @@
 ## ✨ 特性
 
 - 🎮 **5 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇、俄罗斯方块，纯前端实现
-- 📱 **19 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、节假日宠物寄养、活动报名签到、团队排班、家修管家、错题本
+- 📱 **20 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、节假日宠物寄养、活动报名签到、团队排班、家修管家、错题本、求职作战台
 - 🔌 **2 款 IDEA 插件**：桌面宠物鲸鱼、按键统计工具窗口
 - 📝 **技术博客**：6 篇技术文章卡片
 - 🌍 **中英文切换**：完整 i18n 支持，一键切换
@@ -63,6 +63,7 @@ dev-portfolio/
 │   ├── heartverse-cover.webp       # 心动星球封面
 │   ├── shop-booking-cover.webp     # 小商家预约排队封面
 │   ├── idle-exchange-cover.webp    # 闲置交换封面
+│   ├── job-hunt-cover.jpg          # 求职作战台封面
 │   ├── warm-host-cover.webp        # 节假日宠物寄养封面
 │   ├── event-signin-cover.webp     # 活动报名签到封面
 │   ├── team-schedule-cover.webp    # 团队排班封面
@@ -105,7 +106,7 @@ python -m http.server 8090
 
 ## 🎮 作品列表
 
-共 5 款网页游戏、19 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
+共 5 款网页游戏、20 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
 
 ### 网页游戏（5）
 
@@ -115,7 +116,7 @@ python -m http.server 8090
 - **贪吃蛇 · Snake** — 经典贪吃蛇的 Roguelite 进化版。📦 https://gitee.com/li-luoqiang/snake-game · 升级卡 · 3 生命 · 连击倍率 · Boss 蛇 · 排行榜
 - **俄罗斯方块 · Tetris** — 经典方块消除游戏。🌐 https://tetris-10i.pages.dev/ · 📦 https://gitee.com/li-luoqiang/tetris · 7 种方块 · 幽灵投影 · 消行特效 · 等级加速
 
-### Web 应用（19）
+### Web 应用（20）
 
 | 应用 | 简介 | 在线 | 源码 |
 |------|------|------|------|
@@ -138,6 +139,7 @@ python -m http.server 8090
 | 团队排班 | 团队排班管理 / 调班换班 / CSV·ICS 导出 | [🌐](https://team-schedule-bna.pages.dev/) | [📦](https://gitee.com/li-luoqiang/team-schedule) |
 | 家修管家 | 家庭维修预约 / 师傅评分 / 订单管理 | [🌐](https://home-repair-ewe.pages.dev/) | [📦](https://gitee.com/li-luoqiang/home-repair) |
 | 错题本 | 拍照记错题 / 间隔复习 / 科目分类 | [🌐](https://wrong-book-8ne.pages.dev/) | [📦](https://gitee.com/li-luoqiang/wrong-book) |
+| 求职作战台 | 零依赖求职管理（投递漏斗 / 简历PDF / 80 题题库） | [🌐](https://job-hunt-cbm.pages.dev/) | [📦](https://gitee.com/li-luoqiang/job-hunt) |
 
 ### IDEA 插件（2）
 
