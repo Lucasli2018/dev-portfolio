@@ -69,6 +69,7 @@ dev-portfolio/
 │   ├── team-schedule-cover.webp    # 团队排班封面
 │   ├── home-repair-cover.webp      # 家修管家封面
 │   ├── wrong-book-cover.webp       # 错题本封面
+│   ├── github-proxy-cover.jpg     # GitHub 镜像代理封面
 │   ├── pet-cover.webp               # IDEA 桌面宠物封面
 │   └── keyboard-cover.webp         # IDEA 按键统计封面
 ├── LICENSE
