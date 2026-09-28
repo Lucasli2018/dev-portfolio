@@ -40,6 +40,7 @@
 .grad-checkin { background: linear-gradient(135deg, #2D5A8C, #4A7CB5, #6BA0D8); }
 .grad-pet { background: linear-gradient(135deg, #1A237E, #3949AB, #5C6BC0); }
 .grad-keyboard { background: linear-gradient(135deg, #1a1a2e, #2a2a4e, #4A3A6E); }
+.grad-github { background: linear-gradient(135deg, #1B1F24, #2D333B, #586069); }
 
 /* ==================== App Section Multi-Card ==================== */
 .app-section .project-card { background: var(--white); }
