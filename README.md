@@ -107,7 +107,7 @@ python -m http.server 8090
 
 ## 🎮 作品列表
 
-共 5 款网页游戏、21 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
+共 5 款网页游戏、24 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
 
 ### 网页游戏（5）
 
@@ -117,7 +117,7 @@ python -m http.server 8090
 - **贪吃蛇 · Snake** — 经典贪吃蛇的 Roguelite 进化版。📦 https://gitee.com/li-luoqiang/snake-game · 升级卡 · 3 生命 · 连击倍率 · Boss 蛇 · 排行榜
 - **俄罗斯方块 · Tetris** — 经典方块消除游戏。🌐 https://tetris-10i.pages.dev/ · 📦 https://gitee.com/li-luoqiang/tetris · 7 种方块 · 幽灵投影 · 消行特效 · 等级加速
 
-### Web 应用（21）
+### Web 应用（24）
 
 | 应用 | 简介 | 在线 | 源码 |
 |------|------|------|------|
@@ -142,6 +142,9 @@ python -m http.server 8090
 | 错题本 | 拍照记错题 / 间隔复习 / 科目分类 | [🌐](https://wrong-book-8ne.pages.dev/) | [📦](https://gitee.com/li-luoqiang/wrong-book) |
 | 求职作战台 | 零依赖求职管理（投递漏斗 / 简历PDF / 80 题题库） | [🌐](https://job-hunt-cbm.pages.dev/) | [📦](https://gitee.com/li-luoqiang/job-hunt) |
 | GitHub 镜像代理 | GitHub 加速镜像代理，免翻墙高速下载 Release 与仓库档案 | [🌐](https://github-proxy-9cy.pages.dev/) | [📦](https://gitee.com/li-luoqiang) |
+| AuraSage 跨境电商 | 五行珠宝香薰出海品牌站（五行测试 / 五国多币种结算） | [🌐](https://aurasage-du3.pages.dev/) | [📦](https://gitee.com/li-luoqiang/aurasage) |
+| 跨境选品决策台 | 东方神秘文化赛道选品（六维评分 / 气泡品类地图 / 合规红线） | [🌐](https://east-mystic-picker.pages.dev/) | [📦](https://gitee.com/li-luoqiang/east-mystic-picker) |
+| 游戏选品决策台 | 游戏立项决策（44 候选 / 六维加权评分 / 买量回收模拟器） | [🌐](https://game-picker.pages.dev/) | [📦](https://gitee.com/li-luoqiang/game-picker) |
 
 ### IDEA 插件（2）
 
