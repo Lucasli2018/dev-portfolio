@@ -79,7 +79,7 @@
           <div class="label" data-i18n="hero.stat1">独立项目</div>
         </div>
         <div class="stat-item">
-          <div class="num">5</div>
+          <div class="num">8</div>
           <div class="label" data-i18n="hero.stat2">网页游戏</div>
         </div>
         <div class="stat-item">
@@ -346,6 +346,10 @@
     <div class="project-card reveal">
       <div class="project-visual">
         <img src="assets/ranch-moon-cover.jpg" alt="月光牧场" loading="lazy">
+        <div class="play-overlay" onclick="openVideoModal('ranch')">
+          <div class="play-icon">▶</div>
+          <span data-i18n="common.video">视频</span>
+        </div>
         <div class="project-visual-overlay">
           <span class="tech-tag">HTML5 Canvas</span>
           <span class="tech-tag">JavaScript</span>
@@ -367,6 +371,10 @@
           <li class="feature-chip">🧡 <span data-i18n="ranch.f5">珊瑚橙月光主题</span></li>
         </ul>
         <div class="project-links">
+          <button class="link-btn play" onclick="openVideoModal('ranch')">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
           <a href="https://ranch-moon.pages.dev/" target="_blank" class="link-btn play">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
             <span data-i18n="common.play">在线试玩</span>
@@ -383,6 +391,10 @@
     <div class="project-card reveal">
       <div class="project-visual">
         <img src="assets/roguelike-card-cover.jpg" alt="肉鸽卡牌" loading="lazy">
+        <div class="play-overlay" onclick="openVideoModal('roguelikecard')">
+          <div class="play-icon">▶</div>
+          <span data-i18n="common.video">视频</span>
+        </div>
         <div class="project-visual-overlay">
           <span class="tech-tag">HTML5 Canvas</span>
           <span class="tech-tag">JavaScript</span>
@@ -404,6 +416,10 @@
           <li class="feature-chip">📖 <span data-i18n="roguelikecard.f5">图鉴收集</span></li>
         </ul>
         <div class="project-links">
+          <button class="link-btn play" onclick="openVideoModal('roguelikecard')">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
           <a href="https://roguelike-card-game.pages.dev/" target="_blank" class="link-btn play">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
             <span data-i18n="common.play">在线试玩</span>
@@ -420,6 +436,10 @@
     <div class="project-card reveal">
       <div class="project-visual">
         <img src="assets/roguelike-gacha-cover.jpg" alt="星海抽卡者" loading="lazy">
+        <div class="play-overlay" onclick="openVideoModal('roguelikegacha')">
+          <div class="play-icon">▶</div>
+          <span data-i18n="common.video">视频</span>
+        </div>
         <div class="project-visual-overlay">
           <span class="tech-tag">HTML5 Canvas</span>
           <span class="tech-tag">JavaScript</span>
@@ -441,6 +461,10 @@
           <li class="feature-chip">💎 <span data-i18n="roguelikegacha.f5">星石资源</span></li>
         </ul>
         <div class="project-links">
+          <button class="link-btn play" onclick="openVideoModal('roguelikegacha')">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="common.video">视频</span>
+          </button>
           <a href="https://roguelike-gacha.pages.dev/" target="_blank" class="link-btn play">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
             <span data-i18n="common.play">在线试玩</span>
@@ -1647,7 +1671,7 @@
       <div class="about-visual reveal-right">
         <div class="about-stat-card">
           <div class="icon">🎮</div>
-          <div class="num">6</div>
+          <div class="num">8</div>
           <div class="label" data-i18n="about.s1">网页游戏</div>
         </div>
         <div class="about-stat-card">
@@ -1755,6 +1779,9 @@
 <script src="js/trailers/kingdom.js"></script>
 <script src="js/trailers/snake.js"></script>
 <script src="js/trailers/tetris.js"></script>
+<script src="js/trailers/ranch.js"></script>
+<script src="js/trailers/roguelike-card.js"></script>
+<script src="js/trailers/roguelike-gacha.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

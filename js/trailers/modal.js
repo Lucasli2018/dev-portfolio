@@ -32,6 +32,12 @@ function openVideoModal(game) {
       startSnakeTrailer();
     } else if (game === 'tetris') {
       startTetrisTrailer();
+    } else if (game === 'ranch') {
+      startRanchTrailer();
+    } else if (game === 'roguelikecard') {
+      startRoguelikeCardTrailer();
+    } else if (game === 'roguelikegacha') {
+      startRoguelikeGachaTrailer();
     }
   }, 100);
 }

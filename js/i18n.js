@@ -372,7 +372,10 @@ const i18n = {
     "video.planewar": "飞机大战 · 游戏预览",
     "video.kingdom": "王国守卫 · 塔防 · 游戏预览",
     "video.snake": "贪吃蛇 · 游戏预览",
-    "video.tetris": "俄罗斯方块 · 游戏预览"
+    "video.tetris": "俄罗斯方块 · 游戏预览",
+    "video.ranch": "月光牧场 · 游戏预览",
+    "video.roguelikecard": "肉鸽卡牌 · 游戏预览",
+    "video.roguelikegacha": "星海抽卡者 · 游戏预览"
   },
   en: {
     "nav.projects": "Work",
@@ -740,7 +743,10 @@ const i18n = {
     "video.planewar": "Plane War · Game Preview",
     "video.kingdom": "Kingdom Defense · Game Preview",
     "video.snake": "Snake · Game Preview",
-    "video.tetris": "Tetris · Game Preview"
+    "video.tetris": "Tetris · Game Preview",
+    "video.ranch": "Moonlight Ranch · Game Preview",
+    "video.roguelikecard": "Roguelike Card · Game Preview",
+    "video.roguelikegacha": "Star-Sea Gacha · Game Preview"
   }
 };
 
