@@ -4,8 +4,8 @@
 
 ## ✨ 特性
 
-- 🎮 **5 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇、俄罗斯方块，纯前端实现
-- 📱 **21 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、节假日宠物寄养、活动报名签到、团队排班、家修管家、错题本、求职作战台、GitHub 镜像代理
+- 🎮 **11 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇、俄罗斯方块、月光牧场、肉鸽卡牌、星海抽卡者、迷雾剧场、仙途挂机、诗词小游戏，纯前端实现
+- 📱 **33 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、节假日宠物寄养、活动报名签到、团队排班、家修管家、错题本、求职作战台、GitHub 镜像代理、AuraSage 跨境电商、跨境选品决策台、游戏选品决策台、学习目标管理台、星座运势、发布小工具、古文学习导航、今天吃啥、项目管理、SOMNA 冥想睡眠、思维导图 MindFlow
 - 🔌 **2 款 IDEA 插件**：桌面宠物鲸鱼、按键统计工具窗口
 - 📝 **技术博客**：6 篇技术文章卡片
 - 🌍 **中英文切换**：完整 i18n 支持，一键切换
@@ -107,9 +107,9 @@ python -m http.server 8090
 
 ## 🎮 作品列表
 
-共 5 款网页游戏、24 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
+共 11 款网页游戏、33 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为已验证在线地址；标 — 的应用同样托管于 Cloudflare Pages，源码见对应仓库。
 
-### 网页游戏（5）
+### 网页游戏（11）
 
 - **暗夜幸存者 · Survivor Game** — 仿《吸血鬼幸存者》浏览器小游戏。🌐 https://survivor-game-9e3.pages.dev/ · 📦 https://gitee.com/li-luoqiang/survivor-game · 5 种武器 · 5 种敌人 · 升级三选一 · 本地排行榜
 - **飞机大战 · Plane War** — 经典飞机射击游戏。🌐 https://plane-war-c5b.pages.dev/ · 📦 https://gitee.com/li-luoqiang/plane-war · 6 种武器道具 · BOSS 弹幕 · 程序化音效 · 移动端适配
@@ -117,7 +117,7 @@ python -m http.server 8090
 - **贪吃蛇 · Snake** — 经典贪吃蛇的 Roguelite 进化版。📦 https://gitee.com/li-luoqiang/snake-game · 升级卡 · 3 生命 · 连击倍率 · Boss 蛇 · 排行榜
 - **俄罗斯方块 · Tetris** — 经典方块消除游戏。🌐 https://tetris-10i.pages.dev/ · 📦 https://gitee.com/li-luoqiang/tetris · 7 种方块 · 幽灵投影 · 消行特效 · 等级加速
 
-### Web 应用（24）
+### Web 应用（33）
 
 | 应用 | 简介 | 在线 | 源码 |
 |------|------|------|------|
@@ -145,6 +145,7 @@ python -m http.server 8090
 | AuraSage 跨境电商 | 五行珠宝香薰出海品牌站（五行测试 / 五国多币种结算） | [🌐](https://aurasage-du3.pages.dev/) | [📦](https://gitee.com/li-luoqiang/aurasage) |
 | 跨境选品决策台 | 东方神秘文化赛道选品（六维评分 / 气泡品类地图 / 合规红线） | [🌐](https://east-mystic-picker.pages.dev/) | [📦](https://gitee.com/li-luoqiang/east-mystic-picker) |
 | 游戏选品决策台 | 游戏立项决策（44 候选 / 六维加权评分 / 买量回收模拟器） | [🌐](https://game-picker.pages.dev/) | [📦](https://gitee.com/li-luoqiang/game-picker) |
+| 思维导图 MindFlow | 在线思维导图 + 流程图 + 白板（自动布局 / 云端同步 / 模板中心） | [🌐](https://gitmind-48x.pages.dev/) | [📦](https://gitee.com/li-luoqiang/gitmind) |
 
 ### IDEA 插件（2）
 
