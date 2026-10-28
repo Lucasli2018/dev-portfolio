@@ -5,7 +5,7 @@
 ## ✨ 特性
 
 - 🎮 **11 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇、俄罗斯方块、月光牧场、肉鸽卡牌、星海抽卡者、迷雾剧场、仙途挂机、诗词小游戏，纯前端实现
-- 📱 **34 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、节假日宠物寄养、活动报名签到、团队排班、家修管家、错题本、求职作战台、GitHub 镜像代理、塘朗山自然教育、AuraSage 跨境电商、跨境选品决策台、游戏选品决策台、学习目标管理台、星座运势、发布小工具、古文学习导航、今天吃啥、项目管理、SOMNA 冥想睡眠、思维导图 MindFlow、西瓜博客
+- 📱 **35 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、节假日宠物寄养、活动报名签到、团队排班、家修管家、错题本、求职作战台、GitHub 镜像代理、塘朗山自然教育、AuraSage 跨境电商、跨境选品决策台、游戏选品决策台、学习目标管理台、星座运势、发布小工具、古文学习导航、今天吃啥、项目管理、SOMNA 冥想睡眠、思维导图 MindFlow、西瓜博客、全能工作台
 - 🔌 **2 款 IDEA 插件**：桌面宠物鲸鱼、按键统计工具窗口
 - 📝 **技术博客**：6 篇技术文章卡片
 - 🌍 **中英文切换**：完整 i18n 支持，一键切换
@@ -47,7 +47,7 @@ dev-portfolio/
 ├── assets/
 │   ├── favicon.svg              # 站点图标（珊瑚橙 L 标识）
 │   ├── dev-avatar.jpg           # 开发者头像
-│   └── *-cover.jpg              # 各作品封面（游戏 11 / 应用 34 / 插件 2，共 47 张 jpg，文件名与项目 key 对应）
+│   └── *-cover.jpg              # 各作品封面（游戏 11 / 应用 35 / 插件 2，共 48 张 jpg，文件名与项目 key 对应）
 ├── LICENSE
 └── README.md
 ```
@@ -83,7 +83,7 @@ python -m http.server 8090
 
 ## 🎮 作品列表
 
-共 11 款网页游戏、34 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为 Cloudflare Pages 在线地址；📦 为 Gitee 源码仓库。
+共 11 款网页游戏、35 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为 Cloudflare Pages 在线地址；📦 为 Gitee 源码仓库。
 
 ### 网页游戏（11）
 
@@ -99,7 +99,7 @@ python -m http.server 8090
 - **仙途挂机 · Xiuxian Idle** — 修仙放置游戏。🌐 https://xiuxian-idle.pages.dev/ · 📦 https://gitee.com/li-luoqiang/xiuxian-idle · 打坐修炼 · 门人弟子产出 · 十重境界突破 · 离线挂机
 - **诗词小游戏 · 诗趣 · Poetry Game** — 四种玩法玩着背诗。🌐 https://poetry-game-8hy.pages.dev/ · 📦 https://gitee.com/li-luoqiang/poetry-game · 诗词填空 · 答题闯关 · 飞花令 · 诗词接龙
 
-### Web 应用（34）
+### Web 应用（35）
 
 | # | 应用 | 简介 | 在线 | 源码 |
 |---|------|------|------|------|
@@ -137,6 +137,7 @@ python -m http.server 8090
 | 32 | SOMNA 冥想睡眠 | 呼吸引导与环境音助眠 | [🌐](https://somnia-sleep.pages.dev/) | [📦](https://gitee.com/li-luoqiang/somnia-sleep) |
 | 33 | 思维导图 MindFlow | 在线思维导图 + 流程图 + 白板（自动布局 / 云端同步 / 模板中心） | [🌐](https://gitmind-48x.pages.dev/) | [📦](https://gitee.com/li-luoqiang/gitmind) |
 | 34 | 西瓜博客 | 个人技术博客（Markdown 写作 / RSS 订阅 / Cloudflare 全栈） | [🌐](https://blog-5dh.pages.dev/) | [📦](https://gitee.com/li-luoqiang/blog) |
+| 35 | 全能工作台 | 一站式个人工作台（待办 / 习惯打卡 / 记账预算 / 体重体脂） | [🌐](https://all-in-one-workbench.pages.dev/) | [📦](https://gitee.com/li-luoqiang/all-in-one-workbench) |
 
 ### IDEA 插件（2）
 
