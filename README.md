@@ -85,7 +85,7 @@ python -m http.server 8090
 
 共 11 款网页游戏、36 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为 Cloudflare Pages 在线地址；📦 为 Gitee 源码仓库。
 
-### 网页游戏（11）
+### 网页游戏（12）
 
 - **暗夜幸存者 · Survivor** — 仿《吸血鬼幸存者》浏览器小游戏。🌐 https://survivor-game-9e3.pages.dev/ · 📦 https://gitee.com/li-luoqiang/survivor-game · 5 种武器 · 5 种敌人 · 升级三选一 · 本地排行榜
 - **飞机大战 · Plane War** — 经典飞机射击游戏。🌐 https://plane-war-c5b.pages.dev/ · 📦 https://gitee.com/li-luoqiang/plane-war · 6 种武器道具 · BOSS 弹幕战 · 程序化音效 · TOP 10 排行榜
@@ -98,6 +98,7 @@ python -m http.server 8090
 - **迷雾剧场 · 文字悬疑推理 · Mystery Script** — 九部剧本推理合集。🌐 https://mystery-script.pages.dev/ · 📦 https://gitee.com/li-luoqiang/mystery-script · 九部完整剧本 · 搜证盘问指认 · 每部 4 结局 · 连环案解锁
 - **仙途挂机 · Xiuxian Idle** — 修仙放置游戏。🌐 https://xiuxian-idle.pages.dev/ · 📦 https://gitee.com/li-luoqiang/xiuxian-idle · 打坐修炼 · 门人弟子产出 · 十重境界突破 · 离线挂机
 - **诗词小游戏 · 诗趣 · Poetry Game** — 四种玩法玩着背诗。🌐 https://poetry-game-8hy.pages.dev/ · 📦 https://gitee.com/li-luoqiang/poetry-game · 诗词填空 · 答题闯关 · 飞花令 · 诗词接龙
+- **汽水打砖块 · Soda Breakout** — 汽水汽泡风经典打砖块。🌐 https://soda-breakout.pages.dev/ · 📦 https://gitee.com/li-luoqiang/soda-breakout · 5 关闯关 · 连击倍率 ×8 · 三种掉落道具 · 本地排行榜 Top 5
 
 ### Web 应用（36）
 
