@@ -4,7 +4,7 @@
 
 ## ✨ 特性
 
-- 🎮 **11 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇、俄罗斯方块、月光牧场、肉鸽卡牌、星海抽卡者、迷雾剧场、仙途挂机、诗词小游戏，纯前端实现
+- 🎮 **13 款网页游戏**：暗夜幸存者、飞机大战、王国守卫、贪吃蛇、俄罗斯方块、月光牧场、肉鸽卡牌、星海抽卡者、迷雾剧场、仙途挂机、诗词小游戏、汽水打砖块、像素狂奔，纯前端实现
 - 📱 **38 款 Web 应用**：温暖陪伴、LinguaVerse 多语种学习平台、在线 PS 图像编辑器、咪咪工具箱、珊瑚音乐、咪咪剪辑、心动星球、约会灵感站、小商家预约排队、闲置交换、古韵抽卡、汪汪时间管理局、猫咪生活报、汪汪签到局、节假日宠物寄养、活动报名签到、团队排班、家修管家、错题本、求职作战台、GitHub 镜像代理、塘朗山自然教育、AuraSage 跨境电商、跨境选品决策台、游戏选品决策台、学习目标管理台、星座运势、发布小工具、古文学习导航、今天吃啥、项目管理、SOMNA 冥想睡眠、思维导图 MindFlow、西瓜博客、全能工作台、我的小说、RFQ 智能报价助手、小蜜智能客服 Agent
 - 🔌 **2 款 IDEA 插件**：桌面宠物鲸鱼、按键统计工具窗口
 - 📝 **技术博客**：6 篇技术文章卡片
@@ -47,7 +47,7 @@ dev-portfolio/
 ├── assets/
 │   ├── favicon.svg              # 站点图标（珊瑚橙 L 标识）
 │   ├── dev-avatar.jpg           # 开发者头像
-│   └── *-cover.jpg              # 各作品封面（含博客封面，共 52 张 jpg，文件名与项目 key 对应）
+│   └── *-cover.jpg              # 各作品封面（含博客封面，共 53 张 jpg，文件名与项目 key 对应）
 ├── LICENSE
 └── README.md
 ```
@@ -83,9 +83,9 @@ python -m http.server 8090
 
 ## 🎮 作品列表
 
-共 11 款网页游戏、38 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为 Cloudflare Pages 在线地址；📦 为 Gitee 源码仓库。
+共 13 款网页游戏、38 款 Web 应用、2 款 IDEA 插件与 6 篇技术博客。标 🌐 的为 Cloudflare Pages 在线地址；📦 为 Gitee 源码仓库。
 
-### 网页游戏（12）
+### 网页游戏（13）
 
 - **暗夜幸存者 · Survivor** — 仿《吸血鬼幸存者》浏览器小游戏。🌐 https://survivor-game-9e3.pages.dev/ · 📦 https://gitee.com/li-luoqiang/survivor-game · 5 种武器 · 5 种敌人 · 升级三选一 · 本地排行榜
 - **飞机大战 · Plane War** — 经典飞机射击游戏。🌐 https://plane-war-c5b.pages.dev/ · 📦 https://gitee.com/li-luoqiang/plane-war · 6 种武器道具 · BOSS 弹幕战 · 程序化音效 · TOP 10 排行榜
@@ -99,6 +99,7 @@ python -m http.server 8090
 - **仙途挂机 · Xiuxian Idle** — 修仙放置游戏。🌐 https://xiuxian-idle.pages.dev/ · 📦 https://gitee.com/li-luoqiang/xiuxian-idle · 打坐修炼 · 门人弟子产出 · 十重境界突破 · 离线挂机
 - **诗词小游戏 · 诗趣 · Poetry Game** — 四种玩法玩着背诗。🌐 https://poetry-game-8hy.pages.dev/ · 📦 https://gitee.com/li-luoqiang/poetry-game · 诗词填空 · 答题闯关 · 飞花令 · 诗词接龙
 - **汽水打砖块 · Soda Breakout** — 汽水汽泡风经典打砖块。🌐 https://soda-breakout.pages.dev/ · 📦 https://gitee.com/li-luoqiang/soda-breakout · 5 关闯关 · 连击倍率 ×8 · 三种掉落道具 · 本地排行榜 Top 5
+- **像素狂奔 · Pixel Dash** — 像素风横版无尽跑酷。🌐 https://pixel-dash-5nr.pages.dev/ · 📦 https://gitee.com/li-luoqiang/pixel-dash · 3 档难度 · 三种道具 · 精英 Boss · 昼夜四场景 · 10 成就
 
 ### Web 应用（38）
 
